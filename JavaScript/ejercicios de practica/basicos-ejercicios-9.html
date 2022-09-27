@@ -33,6 +33,44 @@ La clase recibirá un objeto al momento de instanciarse con los siguentes datos:
 
 * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
       */
+
+      class Pelicula {
+        constructor({id,titulo,director,estreno,pais,generos,calificación}){
+          this.id=id;
+          this.titulo=titulo;
+          this.director = director;
+          this.estreno=estreno;
+          this.pais=pais;
+          this.genero=genero;
+          this.calificacion=calificacion;
+
+          this.validarIMDB(id);
+        }
+
+        validarCadena(propiedad, valor){
+          if(!valor) return console.warn(`${propiedad}"${valor}" está vacío`);
+
+          if(typeof valor !== "string") return console.error(`${propiedad} "${valor}" ingresado No es una cadena de texto`);
+
+          return true;
+        }
+
+        validarIMDB(id) {
+          if (this.validarCadena("IMDB id", id)){
+            if(!(/^([a-z]){2}({0-9}){7}$/.test(id))){
+              return console.error(`IMDB id "${id}" no es válido, debe tener 9 caracteres, las dos primeras letras minúsculas, los 7 restantes números`);
+            }
+          }
+
+        }
+
+      }
+
+      const peli = new Pelicula(
+        
+      )
+
+      // min 19:39
     </script>
   </body>
 </html>
