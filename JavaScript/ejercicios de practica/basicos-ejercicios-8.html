@@ -280,6 +280,50 @@
       intentoPromedioTres([1]);
       intentoPromedioTres([1,2,3,4,5,6,7,8,9,0]);
 
+      ////////////
+      console.clear();
+      ////////////
+
+      const practicaCuatro = (cuartoIntento = undefined) => {
+
+        if(cuartoIntento === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN CARACTER");
+
+        if(!(cuartoIntento instanceof Array))
+          return console.error(`EL VALOR INGRESADO "${cuartoIntento}" NO ES NINGÚN ARREGLO`);
+
+        if (cuartoIntento.length === 0)
+          return console.error(`EL ARREGLO NO PUEDE ESTAR VACIO`);
+
+        if (cuartoIntento.length === 1)
+          return console.warn(`EL ARERGLO "${cuartoIntento}" DEBE TENER MÁS DE UN CARACTER NUMÉRICO`);
+
+        for (let validante of cuartoIntento){
+          if(typeof validante !== "number")
+            return console.error (`LOS VALORES INRGESADOS "${cuartoIntento}" NO SON DE TIPO NUMÉRICO`)
+        }
+
+        return console.info(
+          cuartoIntento.reduce((totalX, numeroX, indexX, cuartoIntento)=>{
+            totalX+= numeroX;
+            if (indexX === cuartoIntento.length -1){
+              return `El promedio de ${cuartoIntento.join(" + ")} Es ${totalX/cuartoIntento.length}`
+            } else {
+              return totalX
+            }
+          })
+        )
+
+      }
+
+      practicaCuatro();
+      practicaCuatro({});
+      practicaCuatro("ajd");
+      practicaCuatro([]);
+      practicaCuatro([4]);
+      practicaCuatro([4,5,6,7,8,9,99,88,7,66,55,44,33,22,11]);
+
+
 
     </script>
   </body>
