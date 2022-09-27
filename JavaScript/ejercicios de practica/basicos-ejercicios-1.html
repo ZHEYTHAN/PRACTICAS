@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Primeros ejercicios básicos</title>
+  </head>
+  <body>
+    <h1>Primeros ejercicios básicos</h1>
+    <script>
+      //1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+      //2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+      //3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+      //4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+      ///
+      ///
+      ///
+      //1)
+
+      let conteo = "Conteo de caracteres";
+      console.log(conteo);
+      console.log(conteo.length);
+
+      function contadorCadena(cadena) {
+        return {
+          cadena,
+          cantidadCaracteresCadena: cadena.length,
+        };
+      }
+
+      console.log(contadorCadena("HOLA QUE TAL"));
+
+      /***************************/
+
+      function conteoDeValores(numeracion) {
+        return {
+          numeracion,
+          cantidadEscrita: numeracion.length,
+        };
+      }
+
+      console.log(conteoDeValores(`Aquí se cuentan los caracteres escritos`));
+      /*****************************/
+
+      function controllerCharacter(contador) {
+        return {
+          contador,
+          numberCharacterUnited: contador.length,
+        };
+      }
+      console.log(
+        controllerCharacter(`esta es la cantidad de caraceres generada`)
+      );
+      /*****************/
+
+      kantidad = (korte) => {
+        return {
+          korte,
+          karacteres: korte.length,
+        };
+      };
+
+      console.log(kantidad(`sabvcnuasbfagwfiuawbcvkljsabflkjwebgf`));
+      /*************************/
+
+      aaa = (bbb) => {
+        return {
+          bbb,
+          asd: bbb.length,
+        };
+      };
+
+      console.log(aaa(`abcdefghijklmnopqrstuvwxyz`));
+      /*******************************/
+
+      xyz = (abc) => {
+        return {
+          abc,
+          def: abc.length,
+        };
+      };
+      console.log(xyz(`0123456789`));
+      /**********/
+
+      pk = (generarKontador) => {
+        return {
+          generarKontador,
+          loQueHay: generarKontador.length,
+        };
+      };
+      console.log(
+        pk(
+          `sdflsbhadflkasghdlfkawhlfkwahflkjwahefkjcsvcosyvc ouwvoiwicbwepofbhwpoigvweouvgwiefgcwikhcgb<nlskbxcw i9usbc isfshvñkwjvhoub ouwarb iw waghfi uwhviu gwpiouvwaiu gweipudf gwpiegcawiprevgc iawerfohciuagcilahlkchalkcgh `
+        )
+      );
+      ///////////////// SOLUCIÓN DE JON MIRCHA
+
+      function contarCaracteres(cadena = "") {
+        if (!cadena) {
+          console.warn("NO INGRESASTE NINGUNA CADENA");
+        } else {
+          console.info(
+            `La cadena "${cadena}" tiene ${cadena.length} caracteres`
+          );
+        }
+      }
+
+      contarCaracteres();
+      contarCaracteres("Hello World");
+      /////repeticiones.
+
+      elContadorDeCaracteres = (laCadena = "") => {
+        if (!laCadena) {
+          console.warn("There are no wrote nothing here");
+        } else {
+          console.info(
+            `La cadena escrita "${laCadena}" tiene ${laCadena.length} de Caracteres`
+          );
+        }
+      };
+
+      elContadorDeCaracteres();
+      elContadorDeCaracteres("asdlfjslañdfjlñasdfj");
+      ////////////
+
+      estaFuncion = (escrito = "") => {
+        if (!escrito) {
+          console.warn("Aquí no hay nada escrito");
+        } else {
+          console.info(
+            `El texto escrito aquí "${escrito}" contiene una cantidad de ${escrito.length} caracteres`
+          );
+        }
+      };
+
+      estaFuncion();
+      estaFuncion("Texto predeterminado");
+
+      ////////////
+
+      characther = (words = "") => {
+        if (!words) {
+          console.warn("error, error, por favor valide");
+        } else {
+          console.info(
+            `Lo escrito en "${words}" contiene una cantidad total de ${words} caracteres`
+          );
+        }
+      };
+
+      characther();
+      characther("sdhsadhñla clskavh");
+
+      ///////////////
+
+      const ttt = (rrr = "") =>
+        !rrr
+          ? console.warn("No hay cadena escrita")
+          : console.info(
+              `El texto escrito "${rrr}" tiene ${rrr.length} caracteres`
+            );
+
+      ttt();
+      ttt("dhjadjadj");
+      //////////
+
+      const contable = (cantidadNumero = "") =>
+        !cantidadNumero
+          ? console.warn("No hay texto ingresado")
+          : console.info(
+              `el texto "${cantidadNumero}" tiene ${cantidadNumero} caracteres escritos`
+            );
+
+      contable();
+      contable("lasdlñasjdñklsdjfñkahscñv baswñovc");
+
+      //////////
+
+      const wild = (rift = "") =>
+        !rift
+          ? console.warn("NO SE HA INGRESADO NINGÚN TIPO DE TEXTO")
+          : console.info(
+              `El texto registrado aquí → → "${rift}" ← ← cuenta con una cantidad determinada de ${rift.length} de caracteres `
+            );
+
+      wild();
+      wild(
+        "Lorem ipsum slkdhsaconc0iwnc02ncdswdclkshjdfñln sdncñawhe coh cbwalc bsaciugsdfsadpof p{"
+      );
+      /////////////
+
+      const gabo = (titere = "") =>
+        !titere
+          ? console.warn("DONT USED")
+          : console.info(
+              `Text here "${titere}" has been used with ${titere.length} character.`
+            );
+
+      gabo();
+      gabo("aspdfjhafjasd");
+      //////////
+
+      const barbas = (negra = "") => {
+        return !negra
+          ? console.warn("texto predeterminado")
+          : console.info(
+              `segundo texto predeterminado "${negra}" cantidad predeterminada de ${negra.length}`
+            );
+      };
+
+      barbas();
+      barbas("oshlsdhfñlsjfñsadjf");
+
+      /*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+       */
+      ////2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
+      /********/
+      const pruebaDeCorte = `Esto es un texto de prueba`;
+      let recorte;
+
+      recorte = pruebaDeCorte.slice();
+
+      console.log(pruebaDeCorte);
+      console.log(recorte.slice(0, 7));
+      /***********/
+
+      corte = (cut) => {
+        return {
+          cut,
+          corteDeTexto: cut.slice(0, 12),
+        };
+      };
+      console.log(corte(`texto uno de prueba`));
+      /***********/
+
+      elemento = (kakuzu) => {
+        return {
+          kakuzu,
+          hiddan: kakuzu.slice(0, 9),
+        };
+      };
+      console.log(elemento(`administrador de bases`));
+      /***********/
+
+      three = (postCut) => {
+        return {
+          postCut,
+          united: postCut.slice(0, 15),
+        };
+      };
+
+      console.log(three(`El mar de los dolientes sin rumbo`));
+      /*********/
+
+      punto = (torta) => {
+        console.log(torta.slice(0, 15));
+      };
+
+      punto(`ksfsdh sfsdhfkjhe afaed sfhsfhkjsfhffffffffffffffffff      `);
+
+      ///////////////// SOLUCIÓN DE JON MIRCHA
+
+      const recortarTexto = (cadenaTexto = "", longitud = undefined) =>
+        !cadenaTexto
+          ? console.warn("No se ingreso una cadena de texto")
+          : longitud === undefined
+          ? console.warn("No se ingreso la longitud para recortar el texto")
+          : console.info(cadenaTexto.slice(0, longitud));
+
+      recortarTexto("Holando", 4);
+      recortarTexto();
+      recortarTexto("Holaasdasd");
+      recortarTexto("", 6);
+      recortarTexto(
+        "Este texto es el que se va a recortar aquí, a partir de la coma no se mostrará",
+        42
+      );
+      //////////
+
+      const oppo = (extess = "", largo = undefined) =>
+        !extess
+          ? console.warn("NO SE HA ESCRITO NADA")
+          : largo === undefined
+          ? console.warn("No hay longitud para recortar")
+          : console.info(extess.slice(0, largo));
+
+      oppo();
+      oppo("asdasdasd");
+      oppo("", 3);
+      oppo("asdasdasd", 3);
+      //////
+
+      const render = (rizado = "", tamaño = undefined) =>
+        !rizado
+          ? console.warn("ADVERTENCIA, NO SE HA ESCRITO NADA")
+          : tamaño === undefined
+          ? console.warn("¿Qué parte del texto se va a recortar?")
+          : console.info(rizado.slice(0, tamaño));
+
+      render("texto a recortar qaskdhakjdhs", 20);
+      render();
+      render("", 12);
+      render(5);
+      /*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+       */
+
+      //3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+      function partir(palabra) {
+        console.log(palabra.split(" "));
+      }
+
+      partir("Hola que tal");
+      /*********/
+
+      separar = (dividir) => {
+        console.log(dividir.split(" "));
+      };
+
+      separar(`Este es el texto de división`);
+      /*************/
+
+      xxx = (yyy) => {
+        console.log(yyy.split(" "));
+      };
+      xxx(`asado aqwe e wqer er vsd vsdv vfjoier3fh`);
+      /**********/
+
+      divisor = (dividendo) => {
+        console.log(dividendo.split(" "));
+      };
+
+      divisor(`sodh 9uu laknlanc asjdj qwe qwe fujca d jdjq0dj0qw`);
+      ///////////////// SOLUCIÓN DE JON MIRCHA
+
+      const cadenaArreglo = (cadenaUno = "", separador = undefined) =>
+        !cadenaUno
+          ? console.warn("No hay datos registrados")
+          : separador === undefined
+          ? console.warn("No hay caracter separador")
+          : console.info(cadenaUno.split(separador));
+
+      cadenaArreglo(
+        "sfhkljsadfhlkjhflksdhf adads sf wef wef f ev kje ckj wkjc wkc b",
+        " "
+      );
+      cadenaArreglo();
+      cadenaArreglo("asdjñlfdj");
+
+      ////////////////
+
+      const gafas = (consecuencia = "", matrix = undefined) =>
+        !consecuencia
+          ? console.warn("texto predeterminado")
+          : matrix === undefined
+          ? console.warn("SEGUNDO texto predeterminado")
+          : console.info(consecuencia.split(matrix));
+
+      gafas("hdcshdf", "");
+      gafas("ssdlkvlkdñvlkjdlkjsdñsld");
+      gafas();
+      /////////////
+
+      /*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+       */
+      //4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+      function repetir(palabrita, veces) {
+        console.log(palabrita.repeat(veces));
+      }
+
+      repetir("Holita ", 3);
+      /**************/
+
+      repetidor = (palabra, nveces) => {
+        console.log(palabra.repeat(nveces));
+      };
+      repetidor("Este texto se va a repetir N veces. ", 5);
+
+      /*************************/
+
+      accionador = (actioner, xcantidad) => {
+        console.log(actioner.repeat(xcantidad));
+      };
+
+      accionador("texto de prueba. ", 3);
+
+      ///////////////// SOLUCIÓN DE JON MIRCHA
+
+      const multiTexto = (lector = "", varios = undefined) => {
+        if (!lector) return console.warn("NO HAY TEXTO");
+
+        if (varios === undefined)
+          return console.warn("No hay cantidad de veces a repetir");
+
+        if (varios === 0)
+          return console.error("El número de veces no puede ser 0");
+
+        if (Math.sign(varios) === -1)
+          return console.error("El número no puede ser NEGATIVO");
+
+        for (let i = 1; i <= varios; i++) console.info(`${lector}, ${i}`);
+      };
+
+      multiTexto();
+      multiTexto("Hola Mundo", 3);
+      multiTexto("Hola Mundo", 0);
+      multiTexto("Hola Mundo", -20);
+      multiTexto("", 20);
+      multiTexto("Hola Mundo");
+      ////////////
+
+      const varText = (writeText = "", cantidadMulti = undefined) => {
+        if (!writeText) return console.warn("No Se Ha Escrito Nada");
+
+        if (cantidadMulti === undefined)
+          return console.warn(
+            "No hay una cantidad de repeticiones establecida"
+          );
+
+        if (cantidadMulti === 0)
+          return console.error(
+            "LA CANTIDAD DE VECES A REPETIR NO PUEDE SER 0 (CERO)"
+          );
+
+        if (Math.sign(cantidadMulti) === -1)
+          return console.error(
+            "LA CANTIDAD DE VECES A REPETIR NO PUEDE SER UN NÚMERO NEGATIVO"
+          );
+
+        for (let a = 1; a <= cantidadMulti; a++)
+          console.info(`${writeText},${a}`);
+      };
+
+      varText();
+      varText("Hello World", 4);
+      varText("Hola hola", 0);
+      varText("Hola hola", -10);
+      varText("", -10);
+      varText("djflkdsjf");
+    </script>
+  </body>
+</html>

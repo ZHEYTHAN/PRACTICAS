@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+  <!--Aquí para poder aplicar el dark mode se le puede poner la clase en la etiqueta html que está en esta linea-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Efectos visuales en CSS</title>
+    <link rel="stylesheet" href="css/visual-effects.css" />
+  </head>
+  <body>
+    <h1>Efectos visuales en CSS</h1>
+    <hr />
+    <h2>Sombras</h2>
+    <div class="box shadows">
+      <p>Sombras</p>
+    </div>
+    <div class="box shadows-multiple">
+      <p>Sombras</p>
+    </div>
+    <div class="box drop-shadow">
+      <img src="/assets/PAISAJE2.png" alt="paisaje" />
+    </div>
+    <hr />
+
+    <h2>Degradados</h2>
+    <h3>Lineal</h3>
+    <div class="box linear-gradient"></div>
+    <h3>Radial</h3>
+    <div class="box radial-gradient"></div>
+    <h3>Cónicos</h3>
+    <div class="box conic-gradient"></div>
+
+    <h3>Repetir Degradados</h3>
+    <div class="box repeat-gradient-linear"></div>
+    <div class="box repeat-gradient-radial"></div>
+    <div class="box repeat-gradient-conic"></div>
+    <h3>Graficas con Degradados.</h3>
+    <div class="box chart-gradient"></div>
+    <div class="box donut-gradient"></div>
+    <hr />
+    <h2>Filtros</h2>
+    <h3>Filtros</h3>
+
+    <article class="card">
+      <img class="filter" src="assets/paisaje.jpg" alt="Paisaje" />
+    </article>
+
+    <h3>Filtros Múltiples</h3>
+    <article class="card">
+      <img class="filters-multiple" src="assets/paisaje.jpg" alt="" />
+    </article>
+
+    <h3>Filtros a Fondos</h3>
+    <article class="card relative">
+      <img src="assets/paisaje.jpg" alt="Paisaje" />
+      <div class="backdrop-filter">
+        <h4>Paisaje</h4>
+      </div>
+    </article>
+
+    <h3>Filtros múltiples a Fondos</h3>
+    <article class="card relative">
+      <img src="assets/paisaje.jpg" alt="Paisaje" />
+      <div class="backdrop-filter-multiple">
+        <h4>Paisaje</h4>
+      </div>
+    </article>
+    <h3>Modo Dark/Light Con Filtros</h3>
+    <article class="card">
+      <img src="assets/paisaje.jpg" alt="Paisaje" />
+    </article>
+    <article class="card">
+      <img src="assets/DOMINAR.jpg" alt="Paisaje" />
+    </article>
+    <hr />
+    <h2>Modos de Mezcla</h2>
+    <h3>Sobre Imágenes (img)</h3>
+    <article class="card relative blend-modes">
+      <img src="assets/paisaje.jpg" alt="Paisaje" />
+      <img class="absolute" src="assets/perrituuuu.jpg" alt="perrituuuu" />
+    </article>
+    <h3>Sobre Imágenes de fondo (background-image)</h3>
+    <article class="card bg-blend-modes"></article>
+    <hr />
+    <h2>Máscaras</h2>
+    <article class="card clip-path">
+      <img src="assets/paisaje.jpg" alt="Paisaje" />
+    </article>
+    <hr />
+    <h2>Formas</h2>
+    <article class="shapes">
+      <h3>Ejemplos de Formas y siluetas entre textos e Imágenes</h3>
+      <img src="assets/paisaje.jpg" alt="Paisaje" class="float-left shape-1" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi et
+        laboriosam ipsam neque, nulla dolore quasi natus accusantium cumque.
+        Necessitatibus quos perspiciatis est odit? Facilis sunt quod magnam
+        dolores cupiditate.
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
+        obcaecati, optio assumenda vel consectetur officiis voluptate provident
+        dolorem repellendus eaque iste at ab voluptatibus necessitatibus itaque
+        aperiam cupiditate! Consequatur, iure?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam harum
+        corrupti repellendus similique dicta! Iusto voluptatibus commodi quis
+        consequatur? Reprehenderit laboriosam accusantium nisi harum recusandae
+        quisquam debitis a reiciendis dicta?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa molestias
+        in provident exercitationem commodi sit sapiente accusantium ex,
+        quisquam consectetur omnis minus officiis iure sint dicta minima alias
+        id amet.
+      </p>
+      <img src="assets/paisaje.jpg" alt="Paisaje" class="float-right shape-2" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi et
+        laboriosam ipsam neque, nulla dolore quasi natus accusantium cumque.
+        Necessitatibus quos perspiciatis est odit? Facilis sunt quod magnam
+        dolores cupiditate.
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
+        obcaecati, optio assumenda vel consectetur officiis voluptate provident
+        dolorem repellendus eaque iste at ab voluptatibus necessitatibus itaque
+        aperiam cupiditate! Consequatur, iure?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam harum
+        corrupti repellendus similique dicta! Iusto voluptatibus commodi quis
+        consequatur? Reprehenderit laboriosam accusantium nisi harum recusandae
+        quisquam debitis a reiciendis dicta?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa molestias
+        in provident exercitationem commodi sit sapiente accusantium ex,
+        quisquam consectetur omnis minus officiis iure sint dicta minima alias
+        id amet.
+      </p>
+      <img src="assets/paisaje.jpg" alt="Paisaje" class="float-left shape-3" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi et
+        laboriosam ipsam neque, nulla dolore quasi natus accusantium cumque.
+        Necessitatibus quos perspiciatis est odit? Facilis sunt quod magnam
+        dolores cupiditate.
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit
+        obcaecati, optio assumenda vel consectetur officiis voluptate provident
+        dolorem repellendus eaque iste at ab voluptatibus necessitatibus itaque
+        aperiam cupiditate! Consequatur, iure?
+      </p>
+      <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam harum
+        corrupti repellendus similique dicta! Iusto voluptatibus commodi quis
+        consequatur? Reprehenderit laboriosam accusantium nisi harum recusandae
+        quisquam debitis a reiciendis dicta?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa molestias
+        in provident exercitationem commodi sit sapiente accusantium ex,
+        quisquam consectetur omnis minus officiis iure sint dicta minima alias
+        id amet.
+      </p>
+    </article>
+    <a href="index.html#temario-css">☝</a>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </body>
+</html>

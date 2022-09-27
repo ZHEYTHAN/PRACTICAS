@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJERCICIOS BASICOS 2</title>
+  </head>
+  <body>
+    <h1>ejercicios basicos - segunda parte</h1>
+    <script>
+      //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+      //6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+      //7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+      //8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+      const invertir = (palabraInvertida = "") => {
+        !palabraInvertida
+          ? console.warn("No hay nada escrito")
+          : console.info(
+              `La pabara o frase "${palabraInvertida}" será invertida "${palabraInvertida
+                .split("")
+                .reverse()
+                .join("")}"`
+            );
+      };
+
+      invertir();
+      invertir("frase de prueba");
+      ///////////////
+
+      const palabraX = (invertida = "") => {
+        !invertida
+          ? console.warn("No hay ningún texto a invertir")
+          : console.info(
+              `La palabra o frase "${invertida}" sera invertida aquí → → "${invertida
+                .split("")
+                .reverse()
+                .join("")}" `
+            );
+      };
+
+      palabraX();
+      palabraX("Este es el texto a invertir");
+
+      /////////////////
+
+      const inversorDePalabra = (palabraAInvertir = "") => {
+        !palabraAInvertir
+          ? console.warn("No Hay texto registrado aquí")
+          : console.info(
+              `Esta frase "${palabraAInvertir}" será invertida = "${palabraAInvertir
+                .split("")
+                .reverse()
+                .join("")}"`
+            );
+      };
+
+      inversorDePalabra();
+      inversorDePalabra("paraguan cutirimicaro");
+
+      //////////////////////
+
+      const abc = (inversor = "") => {
+        !inversor
+          ? console.warn("No hay nada escrito!!!!!!!!!!!!!!")
+          : console.info(
+              `el texto "${inversor}" sera invertido a "${inversor
+                .split("")
+                .reverse()
+                .join("")}" `
+            );
+      };
+
+      abc();
+      abc("los pollitos dicen");
+
+      //6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+      const buscadorDePalabra = (frase = "", palabraabuscar = "") => {
+        //VALIDANDO LAS ENTRADAS
+        if (!frase)
+          return console.warn(
+            "NO INGRESASTE EL TEXTO LARGO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+          );
+
+        if (!palabraabuscar)
+          return console.warn("NO INGRESASTE LA PALABRA A EVALUAR");
+        //indica la cantidad de veces que repite el filtro
+        let i = 0;
+        let contador = 0;
+
+        while (i != -1) {
+          i = frase.indexOf(palabraabuscar, i);
+
+          if (i != -1) i++, contador++;
+        }
+        //retorno de la busqueda.
+        return console.info(
+          `La palabra "${palabraabuscar}" se repite "${contador} veces"`
+        );
+      };
+
+      //buscadorDePalabra();
+      //buscadorDePalabra("", `mundo`);
+      buscadorDePalabra(
+        "Hola mundo, del mundo mundial mundo mundo mundo mundo",
+        `mundo`
+      );
+      ///////////////////////////////
+      /*
+      const intentoTres = (escritoLargo = "", parteDeBusqueda = "") => {
+        if (!escritoLargo)
+          return console.warn("NO SE HA INGRESADO NINGÚN TEXTO O PARRAFO");
+
+        if (!parteDeBusqueda)
+          return console.warn(
+            "¿Qué PALABRA o FRASE es la que se quiere buscar?"
+          );
+
+        let variableI = 0,
+          factorContable = 0;
+
+        while (variableI !== -1) {
+          variableI = escritoLargo.indexOf(parteDeBusqueda, variableI);
+          if (variableI !== -1) {
+            variableI++, factorContable++;
+          }
+        }
+        return console.info(
+        `La palabra o frase seleccionada ("${parteDeBusqueda}") se repite ("${factorContable}") veces`
+        );
+      };
+
+      intentoTres();
+      intentoTres(
+        "lkasdhflñsv ñsh vñlsavh lñrvbwefoi wiofgwoiefhwef howefbo viv iurfhweco bwqecbqweoc"
+      );
+      intentoTres(
+        "lkasdhflñsv ñsh vñlsavh lñrvbwefoi wiofgwoiefhwef howefbo viv iurfhweco bwqecbqweoc",
+        "asowdfghoiwfp"
+      );
+            */
+      ///////////////////////////////////////
+
+      const intentoCuatro = (primeraPropiedad = "", segundaPropiedad = "") => {
+        if (!primeraPropiedad)
+          return console.warn(
+            "PENDEJO, NO HAY NADA REGISTRADO, VUELVA Y VALIDE!!!"
+          );
+
+        if (!segundaPropiedad)
+          return console.warn(
+            "PENDEJO ¿QUÉ QUIERE QUE BUSQUE? SI NO HA ESCRITO NADA!!"
+          );
+
+        let y = 0,
+          contadorUno = 0;
+        while (y != -1) {
+          y = primeraPropiedad.indexOf(segundaPropiedad, y);
+          if (y != -1) {
+            y++, contadorUno++;
+          }
+        }
+
+        return console.info(
+          `En la frase "${primeraPropiedad}"se está haciendo la busqueda de la palabra "${segundaPropiedad}", la cual se repite ${contadorUno} veces`
+        );
+      };
+
+      intentoCuatro();
+      intentoCuatro("este texto es de prueba y validacion de escrito", "");
+      intentoCuatro(
+        "Hola mundo, del mundo mundial mundo mundo mundo mundo",
+        `mundo`
+      );
+
+      ////////////////
+
+      const intentoCinco = (firstProperty = "", secondProperty = "") => {
+        if (!firstProperty) return console.error("FAVOR INGRESAR TEXTO");
+        if (!secondProperty)
+          return console.warn("FAVOR INGRESAR PALABRA O FRASE PARA BUSCAR");
+
+        let p = 0;
+        let marcador = 0;
+
+        while (p != -1) {
+          p = firstProperty.indexOf(secondProperty, p);
+          if (p != -1) {
+            p++, marcador++;
+          }
+        }
+        return console.info(
+          `En la frase "${firstProperty}", se va a hacer busqueda de la palabra "${secondProperty}" en donde esta se repite ${marcador} veces`
+        );
+      };
+
+      intentoCinco();
+      intentoCinco("asdfsadf");
+      intentoCinco(
+        "Este es un texto de prueba en el cual las palabras y las frases se van a repetir de manera intencional a lo cual con esto se va a generar la busqueda especificada de este documentos, escrito, texto o parrafo redactado de improvisto",
+        "de"
+      );
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+      const palabraPalindroma = (wordOne = "") => {
+        if (!wordOne) return console.warn("NO SE HA INGRESADO NINGÚN TEXTO");
+
+        wordOne = wordOne.toLowerCase();
+        let alReves = wordOne.split("").reverse().join("");
+
+        return wordOne === alReves
+          ? console.info(
+              `Sí es palíndromo, Palabra original "${wordOne}", palabra al revés "${alReves}"`
+            )
+          : console.info(
+              `No es palíndromo, Palabra original "${wordOne}", palabra al revés "${alReves}"`
+            );
+      };
+
+      palabraPalindroma();
+      palabraPalindroma("ssadfbeb");
+      palabraPalindroma("arenera");
+
+      //////////////////////////
+
+      const palindromo = (firstWord = "") => {
+        //validando entrada
+        if (!firstWord) return console.error("NO HAY NINGÚN TEXTO REGISTRADO");
+
+        //invirtiendo palabra
+        firstWord = firstWord.toLocaleUpperCase();
+        let secondWord = firstWord.split("").reverse().join("");
+
+        //generando comparativa para devolver palabra =  respuesta.
+        return firstWord === secondWord
+          ? console.info(
+              `La palabra "${firstWord}" si es palíndromo y queda así= "${secondWord}"`
+            )
+          : console.info(
+              `La palabra "${firstWord}" NO ES PALÍDROMO ya que queda así= "${secondWord}"`
+            );
+      };
+
+      palindromo();
+      palindromo("SALAS");
+      palindromo("muñeco");
+
+      ////////////////
+
+      const palindromoTres = (registroPalabra = "") => {
+        if (!registroPalabra)
+          return console.warn("No hay una palabra o algo escrito");
+
+        registroPalabra = registroPalabra.toLocaleLowerCase();
+
+        let invertidoPalabra = registroPalabra.split("").reverse().join("");
+
+        return registroPalabra === invertidoPalabra
+          ? console.info(
+              `"${registroPalabra}" es palíndromo y queda así = "${invertidoPalabra}"`
+            )
+          : console.info(
+              `"${registroPalabra}"NO ES palíndromo ya que queda así = "${invertidoPalabra}"`
+            );
+      };
+
+      palindromoTres();
+      palindromoTres("AZUCAR");
+      palindromoTres("sales");
+      palindromoTres("salas");
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+      const eliminarCaracter = (grupoTexto = "", patronA = "") =>
+        !grupoTexto
+          ? console.warn("NO SE HA INGRESADO UN TEXTO ")
+          : !patronA
+          ? console.warn("NO SE HA DETECTADO EL PATRON QUE SE VA A REEMPLAZAR")
+          : console.info(grupoTexto.replace(new RegExp(patronA, "ig"), ""));
+
+      eliminarCaracter();
+      eliminarCaracter("xyz1, xyz2, xyz3, xyz4 y xyz5");
+      eliminarCaracter("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+      eliminarCaracter(
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quis, totam id atque laboriosam qui neque delectus, voluptas eligendi minus, eveniet perspiciatis beatae. At perferendis eligendi debitis consectetur magni dolor?",
+        "[a-z]"
+      );
+
+      //////////////////////////
+
+      const deleteCharacter = (entradaTexto = "", patronDelete = "") =>
+        !entradaTexto
+          ? console.warn("NO SE HA INGRESADO NINGÚN TEXTO")
+          : !patronDelete
+          ? console.warn("¿Qué patron de caracteres se va a reemplazar?")
+          : console.info(
+              entradaTexto.replace(new RegExp(patronDelete, "ig"), "")
+            );
+
+      deleteCharacter();
+      deleteCharacter("xyz1, xyz2, xyz3, xyz4 y xyz5");
+      deleteCharacter("xyz1, xyz2, xyz3, xyz4 y xyz5", "[xyz\y]");
+      deleteCharacter("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+      deleteCharacter(
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quis, totam id atque laboriosam qui neque delectus, voluptas eligendi minus, eveniet perspiciatis beatae. At perferendis eligendi debitis consectetur magni dolor?",
+        "[h-r]"
+      );
+
+      //////////////////////////
+
+      const textReplace = (propertyOne = "", propertyTwo = "") =>
+        !propertyOne
+          ? console.error("NO SE HA INGRESADO NINGÚN TIPO DE CARACTER O TEXTO")
+          : !propertyTwo
+          ? console.warn(
+              "NO SE HA INGRESADO NINGÚN PATRON/CADENA/CARACTER QUE SE PUEDA USAR PARA REEMPLAZAR"
+            )
+          : console.info(
+              propertyOne.replace(new RegExp(propertyTwo, "ig"), "")
+            );
+
+      textReplace();
+      textReplace("xyz1, xyz2, xyz3, xyz4 y xyz5");
+      textReplace("xyz1, xyz2, xyz3, xyz4 y xyz5", "[xyz\y]");
+      textReplace("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+      textReplace(
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quis, totam id atque laboriosam qui neque delectus, voluptas eligendi minus, eveniet perspiciatis beatae. At perferendis eligendi debitis consectetur magni dolor?",
+        " "
+      );
+      textReplace(
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quis, totam id atque laboriosam qui neque delectus, voluptas eligendi minus, eveniet perspiciatis beatae. At perferendis eligendi debitis consectetur magni dolor?",
+        "[A-Z]"
+      );
+
+      ///////////
+
+      const reemplazarTres = (partOne = "", partTwo = "") =>
+        !partOne
+          ? console.error("TEXTO PREDETERMINADO QUE INDICA QUE NO HAY TEXTO")
+          : !partTwo
+          ? console.warn(
+              "TEXTO PREDETERMINADO QUE INDICA QUE NO HAY PATRON DE CARACTERES PARA REEMPLAZAR"
+            )
+          : console.info(partOne.replace(new RegExp(partTwo, "ig"), ""));
+
+      reemplazarTres();
+      reemplazarTres("xyz1, xyz2, xyz3, xyz4 y xyz5");
+      reemplazarTres("xyz1, xyz2, xyz3, xyz4 y xyz5", "[a-z\y]");
+      reemplazarTres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+      reemplazarTres(
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quis, totam id atque laboriosam qui neque delectus, voluptas eligendi minus, eveniet perspiciatis beatae. At perferendis eligendi debitis consectetur magni dolor?",
+        "[b-p]"
+      );
+    </script>
+  </body>
+</html>

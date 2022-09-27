@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJERCICIOS BÁSICOS 6</title>
+  </head>
+  <body>
+    <h1>EJERCICIOS BÁSICOS 6</h1>
+
+    <script>
+      /*
+      18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+      19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+      20) Programa una función que valide que un texto sea un intentoEmail válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+      */
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+      const separadorVocalConsonante = (cadena = "") => {
+        //validaciones
+        if (!cadena)
+          return console.warn("NO SE HA INGRESADO NINGUNA CADENA DE TEXTO");
+        if (typeof cadena !== "string")
+          return console.error(
+            "NO SE PUEDEN INGRESAR NÚMEROS U OTROS CARACTERES"
+          );
+
+        // para generar los contadores de las vocales y consonantes
+        let vocales = 0,
+          consonantes = 0;
+
+        // para hacer que todo el texto ingrese en minúsculas
+        cadena = cadena.toLocaleLowerCase();
+
+        // para activar el contador con expresiones reguladas según el caso de vocales y consonantes.
+        for (let letras of cadena) {
+          if (/[aeiouáéíóúäëïöü]/.test(letras)) vocales++;
+
+          if (/[bcdfghijklmnñpqrstvwxyz]/.test(letras)) consonantes++;
+        }
+
+        //se pone entre corchetes para que lo devuelva como objetos.
+        return console.info({ cadena, vocales, consonantes });
+      };
+
+      separadorVocalConsonante();
+      separadorVocalConsonante(55);
+      separadorVocalConsonante(true);
+      separadorVocalConsonante("Hola mundo");
+
+      ////
+      console.clear();
+
+      //////
+
+      const vocalConsonante = (frase = "") => {
+        if (!frase)
+          return console.warn("NO SE HA INGRESADO NINGUNA PALABRA O FRASE");
+        if (typeof frase !== "string")
+          return console.error(
+            `"${frase}" NO ES UNA CADENA DE TEXTO, POR FAVOR VALIDE E INTENTE NUEVAMENTE.`
+          );
+
+        let vocal = 0,
+          consonante = 0;
+
+        for (palabra of frase) {
+          if (/[AEIOUÁÉÍÓÚaeiouáéíóúäëïöü]/.test(palabra)) vocal++;
+          if (/[bcdfghjklmnñpqrstvwxyzBCDFGHJKLMNÑOPQRSTVWXYZ]/.test(palabra))
+            consonante++;
+        }
+        //return console.info({ frase, vocal, consonante });
+        return console.info(
+          `La frase "(${frase})" tiene ${vocal} vocales y ${consonante} consonantes`
+        );
+      };
+
+      vocalConsonante();
+      vocalConsonante(333);
+      vocalConsonante("Mi nombre es Andrés Páez");
+      vocalConsonante("Andrés Páez");
+      vocalConsonante("Ñoñito");
+
+      //
+      console.clear();
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+      /*
+      const validador = (nombre = "") => {
+        //Validaciones
+        if (!nombre) return console.warn("NO SE HA INGRESADO NINGÚN NOMBRE");
+
+        if (typeof nombre !== "string")
+          return console.error(
+            `("${nombre}") NO ES UN NOMBRE VALIDO, POR FAVOR VERIFIQUE E INTENTE NUEVAMENTE`
+          );
+        // ^ este simbolo indica de que no puede haber escrito nada antes
+        //  \s este es para que acepte espacios en blanco (vacios)
+        // +$ este simbolo indica que no puede haber escrito nada después
+        // g es para que valide todo lo que se ha escrito
+        //A-Za-z expresa ue se admite cualquier caracter en el alfabeto de la a la z, claro está que no incluye la ñ
+        let prueba = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/g.test(nombre);
+
+        return prueba
+          ? console.info(`El nombre "${nombre}" es un nombre valido`)
+          : console.info(`El nombre "${nombre}" contiene caracteres invalidos`);
+      };
+
+      validador();
+      validador(33);
+      validador("333");
+      validador("Pepito perez");
+
+      */
+      /////
+
+      /*
+      const validaNombre = (name = "") => {
+        if (!name) return console.warn("NO SE HA INGRESADO NINGÚN NOMBRE");
+
+        if (typeof name !== "string")
+          return console.error(
+            `("${name}") NO ES UN NOMBRE VALIDO, POR FAVOR VERIFIQUE E INTENTE NUEVAMENTE`
+          );
+
+        let expresionReg = /^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/g.test(name);
+
+        return expresionReg
+          ? console.info(`El nombre "${name}" es valido`)
+          : console.info(`El nombre "${name}" NO ES VALIDO`);
+      };
+
+      validaNombre();
+      validaNombre("6743564");
+      validaNombre("AndReS PaEz");
+
+      */
+
+      ////
+      console.clear();
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+      const validarEmail = (email = "") => {
+        if (!email) return console.warn("No ingresaste un email");
+
+        if (typeof email !== "string")
+          return console.error(
+            `El valor "${email}" ingresado, NO es una cadena de texto`
+          );
+
+        //Expresión regular
+        let prueba =
+          /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(
+            email
+          );
+
+        return prueba
+          ? console.info(`"${email}", es un correo válido`)
+          : console.warn(`"${email}", No es un correo válido`);
+      };
+
+      validarEmail();
+      validarEmail(33);
+      validarEmail("andresgam31@gmail.com");
+      validarEmail("andres,gam31,@gmail.com");
+
+      /////////////////
+      ////////////////
+
+      const correoValido = (correoElectronico = "") => {
+        if (!correoElectronico)
+          return console.warn(
+            "NO SE HA INGRESADO NINGUNA CADENA DE TEXTO DE CORREO"
+          );
+
+        if (typeof correoElectronico !== "string")
+          return console.error(
+            `El "${correoElectronico}" no es una cadena de texto valida`
+          );
+
+        let validando =
+          /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(
+            correoElectronico
+          );
+
+        return validando
+          ? console.info(`El correo "${correoElectronico}" es un correo VÁLIDO`)
+          : console.warn(
+              `El correo "${correoElectronico}" NO es un correo VÁLIDO`
+            );
+      };
+
+      correoValido();
+      correoValido(123);
+      correoValido("jo,n,m,,ir,cha,@gmail.com");
+      correoValido("jonmircha@gmail.com");
+    </script>
+  </body>
+</html>

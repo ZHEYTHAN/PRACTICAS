@@ -1,0 +1,21 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+.header {
+    background-image: url("../assets/fachadaD.png");
+    /* margin-left: auto;
+    margin-right: auto; */
+    width: 1100px;
+    height: 800px;
+    background-repeat: no-repeat;
+}

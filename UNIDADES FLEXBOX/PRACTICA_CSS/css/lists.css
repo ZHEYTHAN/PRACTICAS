@@ -1,0 +1,53 @@
+.list {
+  list-style-type: disc; /*Default*/
+  list-style-type: square;
+  list-style-type: circle;
+  list-style-type: lower-roman;
+  list-style-type: upper-roman;
+  list-style-type: decimal;
+  list-style-type: decimal-leading-zero;
+  list-style-type: lower-greek;
+  list-style-type: none;
+  list-style-image: url(/assets/ironman.jpg);
+  list-style-image: url(/assets/paisaje.jpg);
+  list-style-image: none; /*Default*/
+}
+.list li {
+  list-style-type: none;
+}
+
+.list li::before {
+  content: "";
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-image: url("/assets/yamahaniken.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.list-2 li {
+  background-color: coral;
+  list-style-position: inside;
+  list-style-position: outside;
+}
+
+.list-3 li {
+  background-color: cornsilk;
+  list-style: lower-latin outside;
+}
+
+.text-column-4 {
+  list-style-position: inside; /*Deja la línea por fuera de los números*/
+  column-count: 4;
+  column-gap: 1rem; /* Espacio de separación entre una columna y otra. (solo texto de listas).*/
+  column-rule: medium dotted red;
+  column-width: 100px; /*Tamaño mínimo de la anchura de las columnas*/
+}
+.text-column-3 {
+  column-count: 3;
+  column-gap: 1rem; /* Espacio de separación entre una columna y otra. (solo texto de listas).*/
+  column-rule: thin solid gray;
+  column-width: 100px; /*Tamaño mínimo de la anchura de las columnas*/
+}

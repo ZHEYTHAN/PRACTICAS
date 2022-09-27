@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios Básicos 7</title>
+  </head>
+  <body>
+    <h1>Ejercicios Básicos 7</h1>
+    <script>
+      /*
+      21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+      22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+      23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}
+      */
+
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+      const elevarNumero = (
+        nUno = undefined,
+        nDos = undefined,
+        nTres = undefined
+      ) => {
+        //Validaciones
+        if (nUno === undefined || nDos === undefined || nTres === undefined)
+          return console.warn("NO SE HAN INGRESADO LOS TRES NÚMEROS A ELEVAR");
+
+        if (nUno === 0 || nDos === 0 || nTres === 0)
+          return console.error(
+            `Ninguno de los tres números puede ser cero, ya que ninguno se puede elevar con base cero.`
+          );
+
+        if (
+          typeof nUno !== "number" ||
+          typeof nDos !== "number" ||
+          typeof nTres !== "number"
+        )
+          return console.error("Uno de los tres caracteres NO ES UN NÚMERO");
+
+        //variable que va a servir para elevar a la dos 2
+        let elevador = 2;
+
+        return console.info(
+          `Valores originales = {${nUno}, ${nDos}, ${nTres}}, valores elevados a potencia 2= {${Math.pow(
+            nUno,
+            elevador
+          )}, ${Math.pow(nDos, elevador)}, ${Math.pow(nTres, elevador)}}`
+        );
+      };
+
+      elevarNumero();
+      elevarNumero("", 2, 2);
+      elevarNumero(4, 5, 6);
+      elevarNumero(7, 8, 9);
+
+      /////////////////////
+      //////// OTRA POSIBLE SOLUCIÓN --- JON MIRCHA ----
+
+      const devolverCuadrados = (numero = undefined) => {
+        if (numero === undefined)
+          return console.warn("NO SE HA INGRESADO UN ARREGLO DE NÚMEROS");
+
+        if (!(numero instanceof Array))
+          return console.warn("EL VALOR INGRESADO NO ES UN ARREGLO");
+
+        if (numero.length === 0) return console.error("EL ARREGLO ESTÁ VACIO");
+
+        // Este for se usa para poder hacer la validación de tipado númerico!!
+        for (let num of numero) {
+          if (typeof num !== "number")
+            return console.error(
+              `El valor "${num}" ingresado, NO ES UN NÚMERO`
+            );
+        }
+
+        // nn sería como un let para el número a multiplicar por si mismo
+        //.map es para poder modificar el arreglo original
+        const nuevoArreglo = numero.map((nn) => nn * nn);
+
+        // \n es para espaciar como si se usara un <br/>
+        return console.info(
+          `Arreglo original= ${numero}\nArreglo elevado al cuadrardo= ${nuevoArreglo} `
+        );
+      };
+
+      devolverCuadrados();
+      devolverCuadrados(true);
+      devolverCuadrados({});
+      devolverCuadrados([]);
+      devolverCuadrados([1, "2", 3]);
+      devolverCuadrados([4, 3]);
+
+      ///////////
+      console.clear();
+      ////////////
+
+      const numeroElevador = (insertVal = undefined) => {
+        if (insertVal === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN ARREGLO DE NÚMEROS");
+
+        if (!(insertVal instanceof Array))
+          return console.error(
+            `EL VALOR INGRESARO "${insertVal}" NO ES UN ARREGLO, POR FAVOR VERIFIQUE E INTENTE NUEVAMENTE`
+          );
+
+        if (insertVal.length === 0)
+          return console.error(
+            "EL ARREGLO ESTÁ VACIO, POR FAVOR VERIFIQUE E INTENTE NUEVAMENTE"
+          );
+
+        for (let verificador of insertVal) {
+          if (typeof verificador !== "number")
+            return console.error(
+              `El valor ingresado = "${insertVal}" no es un valor numérico, por favor verifique que lo que está escribiendo sean solo números.`
+            );
+        }
+
+        const newArray = insertVal.map((x) => x * x);
+
+        return console.info(
+          `El arreglo de Números = "${insertVal}"\n Elvado al cuadrado queda = "${newArray}"`
+        );
+      };
+
+      numeroElevador();
+      numeroElevador("sdasd");
+      numeroElevador({});
+      numeroElevador([]);
+      numeroElevador(["asdasd"]);
+      numeroElevador([4, "asd", 4]);
+      numeroElevador([4]);
+      numeroElevador([4, 5, 6, 7, 8, 9]);
+
+      ///////////
+      console.clear();
+      ////////////
+
+      const intentoTres = (valorN = undefined) => {
+        if (valorN === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN TIPO DE ARREGLO");
+
+        if (!(valorN instanceof Array))
+          return console.error("EL/LOS VALORES INGRESADOS NO ES/SON UN ARRAY");
+
+        if (valorN.length === 0) return console.error(`El array está vacio`);
+
+        for (let tryThree of valorN) {
+          if (typeof tryThree !== "number")
+            return console.error(
+              `EL VALOR INGRESADO EN "${valorN}" NO ES DE CARACTER NUMÉRICO, POR FAVOR VALIDE QUE ESTE ESCRIBIENDO NÚMEROS.`
+            );
+        }
+
+        const arrayIntentoTres = valorN.map((zz) => zz * zz);
+
+        return console.info(
+          `El arreglo "${valorN}" elevado a la 2 da un total de "${arrayIntentoTres}"`
+        );
+      };
+
+      intentoTres();
+      intentoTres({});
+      intentoTres("s{dkas{dfjmñladsfn");
+      intentoTres([]);
+      intentoTres(["spdfj{lksda"]);
+      intentoTres([10, 11, 12, 13, 14, 15, 16]);
+      intentoTres([1, 10, 100, 1000, 10000, 1000000]);
+
+      ////////////////
+      console.clear();
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+
+      const valMinMax = (ingValores = undefined) => {
+        if (ingValores === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN ARREGLO");
+
+        if (!(ingValores instanceof Array))
+          return console.error(
+            `EL VALOR INGRESADO "${ingValores}" NO ES UN ARREGLO DE NÚMEROS`
+          );
+
+        if (ingValores.length === 0)
+          return console.warn(
+            "EL ARREGLO ESTÁ VACIO, POR FAVOR VALIDE QUE SE HAYAN DIGITADO NÚMEROS"
+          );
+
+        for (let nuevito of ingValores) {
+          if (typeof nuevito !== "number")
+            return console.error(
+              `LOS VALORES INGRESADOS "${ingValores}" NO SON CARACTERES NUMÉRICOS`
+            );
+        }
+
+        //Los tres puntos son necesarios porque sino sale NaN
+
+        return console.info(
+          `Del arreglo "${ingValores}" el valor mínimo es = "${Math.min(
+            ...ingValores
+          )}" y máximo es= "${Math.max(...ingValores)}" `
+        );
+      };
+
+      valMinMax();
+      valMinMax("asd");
+      valMinMax({});
+      valMinMax([]);
+      valMinMax(["ASDASD", 213, 234]);
+      valMinMax([2, 7, 7, 64, 6, 4, 79, 797, 64, 213, 234]);
+      valMinMax([10, 9, 8, 7, 5, 20, 50, 70, 90, 100, -1, -20, -90]);
+
+      ////////////////
+      console.clear();
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      // 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}
+
+      const parImpar = (ingresoNum = undefined) => {
+        if (ingresoNum === undefined)
+          return console.warn(
+            "NO SE HA INGRESADO NINGÚN ARREGLO PARA VERIFICAR"
+          );
+
+        if (!(ingresoNum instanceof Array))
+          return console.error(`LOS CARACTERES INGRESADOS NO SON UN ARREGLO`);
+
+        if (ingresoNum.length === 0)
+          return console.error("EL ARREGLO SE ENCUENTRA VACIO");
+
+        for (let nume of ingresoNum) {
+          if (typeof nume !== "number")
+            return console.error(
+              `LOS CARACTERES INGRESADOS "${ingresoNum}" NO SON CARACTERES NUMÉRICOS`
+            );
+        }
+
+        let par = ingresoNum.filter((num) => num % 2 === 0),
+          impar = ingresoNum.filter((num) => num % 2 === 1);
+
+        return console.info(
+          `Arreglo de Números= "${ingresoNum}" \n pares= "${par}" \n Impar= "${impar}"`
+        );
+      };
+
+      parImpar();
+      parImpar("asdasd");
+      parImpar({});
+      parImpar(["asdasd"]);
+      parImpar([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulos en JavaScript</title>
+    <!-- Salvo que en la librería diga que el documento js sea invocado en la cabecera (Única excepción), debe ir invocado en el body. -->
+  </head>
+  <body>
+    <h1>Módulos en JavaScript</h1>
+    <script src="/java/js/modulos.js" type="module">
+      //Para poder importar de un documento js a otro documento js se debe poner la propiedad type="module"  esto con el fin de que no genere un error de lectura en el navegador.
+    </script>
+    <script src="/java/js/no-modulos.js" nomodule>
+      //Esta invocación se usa en caso de que el navegador en donde se esta ejecutando no soporte la app porque sea un navegador muy antigüo, esto en caso hipotetico y se debe usar la propiedad nomodule para que se ejecute solo ese script y que no genere conflicto de cargar dos veces el mismo código en versiones diferentes
+
+      //ESTO SERÍA PARA EL TEMA DE RETROCOMPATIBILIDAD CON NAVEGADORES VIEJOS Y/O NO SOPORTADOS POR ******+ECMAScript 6 (+ES6) ********
+    </script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJERCICIOS BÁSICOS 5</title>
+  </head>
+  <body>
+    <h1>EJERCICIOS BÁSICOS 5</h1>
+    <script>
+      /*
+      15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+      16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+      17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+      */
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+      const convertirBinarioDecimal = (
+        numero = undefined,
+        base = undefined
+      ) => {
+        if (numero === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN NÚMERO");
+        if (typeof numero !== "number")
+          return console.error(
+            `El caracter ingresado "${numero}" no es un número`
+          );
+        if (base === undefined)
+          return console.warn("NO SE HA INGRESADO NINGUNA BASE A CONVERTIR");
+        if (typeof base !== "number")
+          return console.error(`La base "${base}" no es un valor numérico`);
+
+        //Esta validación es donde ya se lleva a cabo el proceso de calculo
+        if (base === 2) {
+          return console.info(
+            `${numero} base ${base} = ${parseInt(numero, base)} base 10`
+          );
+        } else if (base === 10) {
+          return console.info(
+            `${numero} base ${base} = ${numero.toString(2)} base 2`
+          );
+        } else {
+          return console.error("El tipo de base a convertir NO ES VALIDO");
+        }
+      };
+
+      convertirBinarioDecimal();
+      convertirBinarioDecimal("2");
+      convertirBinarioDecimal(100);
+      convertirBinarioDecimal(100, "2");
+      convertirBinarioDecimal(100, 2);
+      convertirBinarioDecimal(1110010, 2);
+      convertirBinarioDecimal(4, 10);
+      convertirBinarioDecimal(114, 10);
+      convertirBinarioDecimal(114, 2);
+
+      console.clear();
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+      const descuentoPorcentual = (valor = undefined, porcentaje = 0) => {
+        //Validaciones
+        if (valor === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN VALOR");
+        if (typeof valor !== "number")
+          return console.error(
+            `El caracter ingresado "${valor}" no es un número`
+          );
+        if (Math.sign(valor) === -1)
+          return console.error("El valor no puede ser negativo");
+        if (porcentaje === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN PORCENTAJE");
+        if (typeof porcentaje !== "number")
+          return console.warn(
+            `El caracter ingresado "${porcentaje}" no es un caracter numérico`
+          );
+        if (Math.sign(porcentaje) === -1)
+          return console.error("El descuento no puede ser negativo");
+
+        //variables para el calculo
+        let calculoUno = (porcentaje / 100) * valor;
+
+        let calculoDos = valor - calculoUno;
+
+        console.info(
+          `El valor de "${valor}" tiene un descuento del ${porcentaje}%, así que queda en total por un valor de = ${calculoDos}`
+        );
+      };
+
+      descuentoPorcentual();
+      descuentoPorcentual("4");
+      descuentoPorcentual(4);
+      descuentoPorcentual(100, "asd");
+      descuentoPorcentual(-100, 20);
+      descuentoPorcentual(100, -20);
+      descuentoPorcentual(1000, 5);
+
+      console.clear();
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+      const calcularAnios = (fecha = undefined) => {
+        if (fecha === undefined)
+          return console.warn("NO SE HA INGRESADO FECHA");
+        // para negar lo que sea de instanceof debe ir entre parentecis para que no genere error
+        if (!(fecha instanceof Date))
+          return console.error("EL VALOR INGRESADO NO ES UNA FECHA");
+
+        // .getTime cambia la fecha a un valor en milisegundos para que se peuda calcular aritmeticamente.
+        let hoyMenosFecha = new Date().getTime() - fecha.getTime(),
+          // 1000 estos son milisegundos equivalente a un segundo.
+          //el primer 60 equivale a un minuto, el segundo 60 a una hora, el 24 equivale a un día, y 365 equivale a un año.
+          aniosEnMiliSegundos = 1000 * 60 * 60 * 24 * 365;
+        aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMiliSegundos);
+
+        return Math.sign(aniosHumanos) === -1
+          ? // Math.abs es para que el valor negativo no muestre el simbolo menos y se pueda poner como valor absoluto
+            //
+            console.info(
+              `Faltan ${Math.abs(
+                aniosHumanos
+              )} Años para el ${fecha.getFullYear()}`
+            )
+          : Math.sign(aniosHumanos) === 1
+          ? console.info(
+              `Han pasado ${aniosHumanos} Años desde la fecha ${fecha.getFullYear()}.`
+            )
+          : console.info(`Estamos en el año actual "${fecha.getFullYear()}"`);
+      };
+
+      calcularAnios();
+      calcularAnios({});
+      calcularAnios(false);
+      calcularAnios(new Date());
+      //formato de fecha aaaa/mm/dd
+      // el mm se debe tener presente que enero es la posición 0 y diciembre la posición 11.
+      calcularAnios(new Date(1995, 5, 4));
+      calcularAnios(new Date(1895, 5, 4));
+      calcularAnios(new Date(2095, 5, 4));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios Básicos 4</title>
+  </head>
+  <body>
+    <h1>Ejercicios Básicos 4</h1>
+    <script>
+      /*
+      12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+      13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+      14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F
+      */
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+      const numeroPrimo = (numero = undefined) => {
+        //Validación de ingreso de datos.
+
+        if (numero === undefined)
+          return console.warn("No se ha ingresado ningún caracter");
+        if (numero === 0)
+          return console.error("El número ingresado no puede ser cero (0)");
+        if (numero === 1)
+          return console.error("El número ingresado no puede ser uno (1)");
+        if (typeof numero !== "number")
+          return console.error(
+            `El caracter ingresado "${numero}" no es un número`
+          );
+        if (Math.sign(numero) === -1)
+          return console.error("El número no puede ser negativo");
+
+        let divisible = false;
+
+        for (let i = 2; i < numero; i++) {
+          //Se usa el operador modulo % para obtener el residuo de la división, ya que si es cero, es porque se pudo dividir por otro número diferente a si mismo.
+          if (numero % i === 0) {
+            divisible = true;
+            break;
+          }
+        }
+
+        return divisible
+          ? console.info(`El número "${numero}" NO es primo`)
+          : console.info(`El número "${numero}" SI es primo`);
+      };
+
+      numeroPrimo();
+      numeroPrimo("320");
+      numeroPrimo(true);
+      numeroPrimo(0);
+      numeroPrimo(1);
+      numeroPrimo(-13);
+      numeroPrimo(13);
+      numeroPrimo(200);
+
+      ////////////////////////////////////
+
+      const segundoNPrimo = (numerosDos = undefined) => {
+        if (numerosDos === undefined)
+          return console.warn(
+            "NO SE HA INGRESADO NINGÚN CARACTER, POR FAVOR VERIFIQUE E INTENTE NUEVAMENTE"
+          );
+        if (numerosDos === 0)
+          return console.error("ERROR!! EL NÚMERO NO PUEDE SER CERO (0)");
+        if (numerosDos === 1)
+          return console.error("ERROR!! EL NÚMERO NO PUEDE SER UNO (1)");
+        if (Math.sign(numerosDos) === -1)
+          return console.error(
+            "ERROR!! EL NÚMERO NO PUEDE SER NEGATIVO, POR FAVOR VALIDE E INTENTE NUEVAMENTE"
+          );
+        if (typeof numerosDos !== "number")
+          return console.error(
+            `Los caracteres ingresados "${numerosDos}" no son números`
+          );
+
+        let nDivisible = false;
+
+        for (let k = 2; k < numerosDos; k++) {
+          if (numerosDos % k === 0) {
+            nDivisible = true;
+            break;
+          }
+        }
+
+        return nDivisible
+          ? console.info(`El número "${numerosDos}" NO es Primo`)
+          : console.info(`El número "${numerosDos}" SI es Primo`);
+      };
+
+      segundoNPrimo();
+      segundoNPrimo("320");
+      segundoNPrimo(true);
+      segundoNPrimo(0);
+      segundoNPrimo(1);
+      segundoNPrimo(-97);
+      segundoNPrimo(97);
+      segundoNPrimo(300);
+      /////////////////////////////
+
+      const tercerNPrimo = (valorNumerico = undefined) => {
+        if (valorNumerico === undefined)
+          return console.warn(
+            "NO SE HA INGRESADO NINGÚN CARACTER NUMERICO, POR FAVOR VALIDE E INTENTE NUEVAMENTE"
+          );
+        if (valorNumerico === 0)
+          return console.error(
+            "EL VALOR INGRESADO NO PUEDE SER EQUIVALENTE A 0"
+          );
+        if (valorNumerico === 1)
+          return console.error("EL VALOR INGRESADO NO PPUEDE SER UNO");
+        if (Math.sign(valorNumerico) === -1)
+          return console.error(
+            "EL VALOR INGRESADO NO PUEDE SER NEGATIVO, POR FAVOR VALIDE E INTENTE NUEVAMENTE"
+          );
+        if (typeof valorNumerico !== "number")
+          return console.error(
+            `ERROR!! EL CARACTER "${valorNumerico}" NO ES UN CARACTER NUMERICO, POR FAVOR VALIDE E INTENTE NUEVAMENTE`
+          );
+
+        let numeroDivisible = false;
+
+        for (let d = 2; d < valorNumerico; d++) {
+          if (valorNumerico % d === 0) {
+            numeroDivisible = true;
+            break;
+          }
+        }
+        return numeroDivisible
+          ? console.info(`El número ${valorNumerico} NO es PRIMO`)
+          : console.info(`El número ${valorNumerico} SI es PRIMO`);
+      };
+
+      tercerNPrimo();
+      tercerNPrimo("320");
+      tercerNPrimo(true);
+      tercerNPrimo(0);
+      tercerNPrimo(1);
+      tercerNPrimo(-97);
+      tercerNPrimo(101);
+      tercerNPrimo(300);
+
+      /////////////////////////////////////
+
+      const cuartoNPrimo = (insertValor = undefined) => {
+        if (insertValor === undefined)
+          return console.warn("no se ha ingresado ningún valor");
+        if (insertValor === 0)
+          return console.error("El valor no puede ser equivalente a cero 0");
+        if (insertValor === 1)
+          return console.warn("El valor no puede ser 1, debe ser mayor a uno.");
+        if (typeof insertValor !== "number")
+          return console.error("El valor ingresado no es un caracter número");
+        if (Math.sign(insertValor) === -1)
+          return console.error("El número no puede ser negativo");
+
+        let numeroDivisor = false;
+
+        for (let x = 2; x < insertValor; x++) {
+          if (insertValor % x === 0) {
+            numeroDivisor = true;
+            break;
+          }
+        }
+
+        return numeroDivisor
+          ? console.info(`El número ${insertValor} NO es primo`)
+          : console.info(`El número ${insertValor} SI es primo`);
+      };
+
+      cuartoNPrimo();
+      cuartoNPrimo("320");
+      cuartoNPrimo(true);
+      cuartoNPrimo(0);
+      cuartoNPrimo(1);
+      cuartoNPrimo(-97);
+      cuartoNPrimo(101);
+      cuartoNPrimo(300);
+      /////////////
+
+      const quintoNPrimo = (quintoValor = undefined) => {
+        if (quintoValor === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN CARACTER NÚMERO");
+        if (quintoValor === 0)
+          return console.warn("EL VALOR NO PUEDE SER 0 (CERO)");
+        if (quintoValor === 1)
+          return console.warn("EL VALOR NO PUEDE SER UNO (1)");
+        if (typeof quintoValor !== "number")
+          return console.error("EL CARACTER INGRESADO NO ES UN NÚMERO");
+        if (Math.sign(quintoValor) === -1)
+          return console.error(
+            "EL VALOR INGRESADO NO PUEDE SER NINGÚN NÚMERO NEGATIVO"
+          );
+
+        let quintoIntento = false;
+
+        for (let xx = 2; xx < quintoValor; xx++) {
+          if (quintoValor % xx === 0) {
+            quintoIntento = true;
+            break;
+          }
+        }
+        return quintoIntento
+          ? console.info(`El número "${quintoValor}" No es primo`)
+          : console.info(`El número "${quintoValor}" Si es primo`);
+      };
+
+      quintoNPrimo();
+      quintoNPrimo("320");
+      quintoNPrimo(true);
+      quintoNPrimo(0);
+      quintoNPrimo(1);
+      quintoNPrimo(-97);
+      quintoNPrimo(911);
+      quintoNPrimo(325);
+
+      console.clear();
+
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      //13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+      const numParImpar = (numeroValor = undefined) => {
+        //Validaciones
+        if (numeroValor === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN NÚMERO");
+        if (typeof numeroValor !== "number")
+          return console.error("Este no es un número");
+
+        //Si el residuo de la división es 0 significa que es par  ↓↓↓
+
+        return numeroValor % 2 === 0
+          ? console.info(`El Número "${numeroValor}" es un Número par`)
+          : console.info(`El Número "${numeroValor}" es un Número Impar`);
+      };
+
+      numParImpar();
+      numParImpar(3);
+      numParImpar(4);
+      numParImpar(2000);
+      numParImpar(2001);
+
+      ///////////////////////////////////////////////
+
+      const numeroImparPar = (valorN = undefined) => {
+        if (valorN === undefined)
+          return console.warn("NO SE HA INGRESADO NINGÚN CARACTER");
+        if (typeof valorN !== "number")
+          return console.error(
+            `El caracter ingresado "${valorN}" No es de tipo número`
+          );
+
+        return valorN % 2 === 0
+          ? console.info(`El número "${valorN}" Es número par`)
+          : console.info(`El número "${valorN}" No es par`);
+      };
+
+      numeroImparPar();
+      numeroImparPar(3);
+      numeroImparPar(36);
+
+      console.clear();
+      ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F
+
+      const convertirGrados = (grados = undefined, unidad = undefined) => {
+        if (grados === undefined)
+          return console.warn("NO SE HA INGRESADO GRADOS A CONVERTIR");
+        if (typeof grados !== "number")
+          return console.error(
+            `El valor de "${grados}" ingresado mo es un número`
+          );
+        if (unidad === undefined)
+          return console.warn(
+            "NO SE HA INGRESADO EL TIPO DE GRADO A CONVERTIR"
+          );
+        if (typeof unidad !== "string")
+          return console.warn(`El valor "${unidad}" no es una cadena de texto`);
+        if (unidad.length !== 1 || !/(C|F)/.test(unidad))
+          return console.warn("VALOR DE UNIDAD NO RECONOCIDO");
+
+        if (unidad === "C") {
+          return console.info(
+            `${grados}°C = ${Math.round(grados * (9 / 5) + 32)}°F`
+          );
+        } else if (unidad === "F") {
+          return console.info(
+            `${grados} °F = ${Math.round([grados - 32] * (5 / 9))}°C`
+          );
+        }
+        return console.error("El tipo de grados a convertir No es valido");
+      };
+
+      convertirGrados();
+      convertirGrados("2");
+      convertirGrados(2);
+      convertirGrados(2, true);
+      convertirGrados(2, "Hola");
+      convertirGrados(2, "H");
+      convertirGrados(2, "C");
+      convertirGrados(100, "C");
+      convertirGrados(0, "F");
+      convertirGrados(100, "F");
+      convertirGrados(32, "F");
+    </script>
+  </body>
+</html>

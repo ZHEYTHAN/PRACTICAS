@@ -1,0 +1,63 @@
+.filter{
+
+  /*los filtros se deben usar en imagenes ya que en texto o en otros elementos no se va a ver la diferencia*/
+  filter: blur(1rem); /* Este es para desenfocar la imagen*/
+  filter: blur(0.25rem);
+  filter: blur(0.15rem);
+  filter: brightness(
+    1
+  ); /*Este es la intensidad de brillo sobre la imagen de 0 a 1, más de 1 quema la imagen*/
+  filter: brightness(0.75);
+  filter: brightness(0.25);
+  filter: brightness(1.3);
+  filter: contrast(
+    0
+  ); /* este es similar al brillo, maneja el contraste de la imagen de 0 (pantalla completamente gris) a 1, más de 1 satura o quema la imagen*/
+  filter: contrast(0.25);
+  filter: contrast(0.75);
+  filter: contrast(1);
+  filter: contrast(1.25);
+  filter: grayscale(
+    0
+  ); /*este maneja la escala de grises en la imagen de 0 es donde no aplica escala y 1 es donde aplica una escala total de gris, más de 1 opaca mucho la imagen*/
+  filter: grayscale(0.5);
+  filter: grayscale(1);
+  filter: sepia(
+    0
+  ); /*este es más para los colores claros como el amarillo desde 0 a 1*/
+  filter: sepia(0.25);
+  filter: sepia(0.5);
+  filter: sepia(0.75);
+  filter: hue-rotate(
+    0deg
+  ); /*este depende es del circulo cromatico, donde dependiendo del grado que se le dé selecciona el color*/
+  filter: hue-rotate(30deg);
+  filter: hue-rotate(60deg);
+  filter: hue-rotate(90deg);
+  filter: hue-rotate(180deg);
+  filter: hue-rotate(210deg);
+  filter: hue-rotate(240deg);
+  filter: hue-rotate(270deg);
+  filter: hue-rotate(300deg);
+  filter: hue-rotate(330deg);
+  filter: invert(
+    0
+  ); /*Invierte los colores de la imagen de 0 a 1, pero se hace notorio exacto en 1 ya que 0 es como si no aplicara nada.*/
+  filter: invert(0.25);
+  filter: invert(0.5);
+  filter: invert(0.75);
+  filter: invert(1);
+  filter: opacity(0); /*este filtro es para la opacidad de la imagen*/
+  filter: opacity(0.25);
+  filter: opacity(0.5);
+  filter: opacity(0.75);
+  filter: opacity(1);
+  filter: saturate(0); /*este es para la saturación de los colores*/
+  filter: saturate(0.25);
+  filter: saturate(0.5);
+  filter: saturate(1);
+  filter: saturate(3);
+  filter: drop-shadow(1rem 1rem 1rem steelblue);
+}
+
+/*Lo dejo aquí para que no me genere conflicto*/
