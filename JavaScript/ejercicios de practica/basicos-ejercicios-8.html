@@ -179,8 +179,8 @@
         }
 
         return console.info(
-          valorDePromedio.reduce((total, num, index, valorDePromedio) => {
-            total += num;
+          valorDePromedio.reduce((total, numer, index, valorDePromedio) => {
+            total += numer;
             if (index === valorDePromedio.length - 1) {
               return `El promedio de ${valorDePromedio.join(" + ")} es ${
                 total / valorDePromedio.length
@@ -191,12 +191,50 @@
           })
         );
       };
+      ///////////
+      console.clear();
+      ///////////
 
-      promedios();
-      promedios("asd");
-      promedios({});
-      promedios([]);
-      promedios([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+      const promedioIntentoDos = (numerillos = undefined) => {
+        if (numerillos === undefined)
+          return console.warn("NO SE HA INGRESADO NADA");
+
+        if (!(numerillos instanceof Array))
+          return console.error(`EL VALOR AGREGADO NO ES UN ARREGLO`);
+
+        if (numerillos.length === 0)
+          return console.error("EL ARREGLO NO PUEDE ESTAR VACIO");
+
+        if (numerillos.length === 1)
+          return console.warn("El arreglo debe tener mínimo dos valores");
+
+        for (let value of numerillos) {
+          if (typeof value !== "number") {
+            return console.error(
+              `El valor ingresado "${numerillos}" no es de tipo número`
+            );
+          }
+        }
+        return console.info(
+          numerillos.reduce((nTotal, vNumero, pIndex, numerillos) => {
+            nTotal += vNumero;
+            if (pIndex === numerillos.length - 1) {
+              return `El promedio de ${numerillos.join(" + ")} Es ${
+                nTotal / numerillos.length
+              }`;
+            } else {
+              return nTotal;
+            }
+          })
+        );
+      };
+
+      promedioIntentoDos();
+      promedioIntentoDos("oeir");
+      promedioIntentoDos({});
+      promedioIntentoDos([]);
+      promedioIntentoDos([1]);
+      promedioIntentoDos([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
     </script>
   </body>
 </html>
