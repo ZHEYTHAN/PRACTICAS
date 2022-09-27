@@ -235,6 +235,52 @@
       promedioIntentoDos([]);
       promedioIntentoDos([1]);
       promedioIntentoDos([10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]);
+
+      ////////
+      console.clear();
+      ////////
+
+      const intentoPromedioTres = (valorTres = undefined) =>{
+
+        if(valorTres === undefined)
+          return console.warn("NO SE REGISTRA DATOS PARA PROMEDIAR");
+
+        if (!(valorTres instanceof Array))
+          return console.error(`LOS CARACTERES "${valorTres}" NO SON UN ARREGLO`);
+
+        if (valorTres.length === 0)
+          return console.error(`EL ARREGLO ESTÁ VACIO`)
+
+        if (valorTres.length === 1)
+          return console.warn(`El arreglo "${valorTres}" debe tener más de un valor numérico`)
+
+        for (let evaluador of valorTres){
+          if(typeof evaluador !== "number"){
+            return console.error(`EL VALOR INGRESADO "${valorTres}" NO ES DE TIPO NÚMERO`);
+            }
+        }
+
+        return console.info(
+          valorTres.reduce((valorTotal, valorNumero, valorIndex, valorTres)=>{
+            valorTotal += valorNumero;
+            if(valorIndex === valorTres.length -1){
+              return `El promedio de ${valorTres.join(" + ")} Es ${valorTotal/valorTres.length}`
+            } else{
+              return valorTotal
+            }
+          })
+        )
+
+      }
+
+      intentoPromedioTres();
+      intentoPromedioTres("asddfb");
+      intentoPromedioTres({});
+      intentoPromedioTres([]);
+      intentoPromedioTres([1]);
+      intentoPromedioTres([1,2,3,4,5,6,7,8,9,0]);
+
+
     </script>
   </body>
 </html>
