@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práctica de CallBack y Promise</title>
+  </head>
+  <body>
+    <h1>Práctica de CallBack y Promise</h1>
+    <script>
+      //Se va a realizar la práctica de la creación de callbacks y promise de los dos videos anteriores.
+
+      function ejerCallBacks(value, callback) {
+        setTimeout(() => {
+          callback(value, value * value);
+        }, 2500);
+      }
+
+      ejerCallBacks(10, (value, result) => {
+        console.log("Inicio práctrica callback Uno");
+        console.log(`Callback= ${value}, ${result}`);
+        ejerCallBacks(12, (value, result) => {
+          console.log(`callBack: ${value}, ${result}`);
+          ejerCallBacks(14, (value, result) => {
+            console.log(`Callback 3= ${value}, ${result}`);
+            ejerCallBacks(16, (value, result) => {
+              console.log(`CallBack 4== ${value}, ${result}`);
+              console.log("Fin de la práctica Uno de CALLBACKS");
+            });
+          });
+        });
+      });
+
+      function practiPromise(valorUno) {
+        if (typeof valorUno !== "number") {
+          return Promise.reject(
+            `EL valor ingresado "${valorUno}" no es de tipo número`
+          );
+        }
+
+        return new Promise((resultadoUno, rechazoUno) => {
+          setTimeout(() => {
+            resultadoUno({
+              valorUno,
+              resultadoUno: valorUno * valorUno,
+            });
+          }, 3000);
+        });
+      }
+
+      practiPromise(0)
+        .then((objetoUno) => {
+          console.log("Inicio de práctica de PROMISE");
+          console.log(
+            `Promise= ${objetoUno.valorUno}, ${objetoUno.resultadoUno}`
+          );
+          return practiPromise(2);
+        })
+        .then((objetoUno) => {
+          console.log(
+            `Promise two== ${objetoUno.valorUno}, ${objetoUno.resultadoUno}`
+          );
+          return practiPromise(4);
+        })
+        .then((objetoUno) => {
+          console.log(
+            `Promise three== ${objetoUno.valorUno}, ${objetoUno.resultadoUno}`
+          );
+          console.log("Fin de práctica de ejercicio Uno de PROMISE");
+        })
+        .catch((errorUno) => console.error(errorUno));
+    </script>
+  </body>
+</html>
