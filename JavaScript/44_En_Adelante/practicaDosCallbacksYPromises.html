@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segunda Práctica de CallBacks y Promise</title>
+</head>
+<body>
+  <h1>Segunda Práctica de CallBacks y Promise</h1>
+
+  <script>
+    //Segundo Documento con prácticas relacionadas a CALLBACKS Y PROMISE.
+
+    function practicaUnoCallBack (valorPrimero, resultadoPrimero){
+      setTimeout(() => {
+        resultadoPrimero(valorPrimero, valorPrimero * valorPrimero)
+      }, Math.random()*1000);
+    }
+
+    practicaUnoCallBack(10,(valorPrimero, resull)=>{
+      console.log(`Inicio de práctica de CALLBACKS parte Uno`);
+      console.log(`CallBack Uno= ${valorPrimero}, ${resull}`);
+        practicaUnoCallBack(20,(valorPrimero, resull)=>{
+          console.log(`CallBcak Dos= ${valorPrimero}, ${resull}`);
+              practicaUnoCallBack(30, (valorPrimero, resull)=>{
+                console.log(`Callback Tres= ${valorPrimero}, ${resull}`);
+                  practicaUnoCallBack(40,(valorPrimero, resull)=>{
+                    console.log(`CallBack cuatro= ${valorPrimero}, ${resull}`);
+                      practicaUnoCallBack(50,(valorPrimero, resull)=>{
+                        console.log(`CallBack Cinco= ${valorPrimero}, ${resull}`);
+                          practicaUnoCallBack(60,(valorPrimero, resull)=>{
+                            console.log(`CallBack seis= ${valorPrimero}, ${resull}`);
+                              practicaUnoCallBack(70,(valorPrimero, resull)=>{
+                                console.log(`CallBack siete= ${valorPrimero}, ${resull}`);
+                                console.log(`Finalización de Prácticas de Callbacks primera parte`);
+                              })
+                          })
+                      })
+                  })
+              })
+        })
+    })
+
+    function intentoDosCall (parteUno, totalUno){
+      setTimeout(() => {
+        totalUno(parteUno, parteUno * parteUno)
+      }, 1500);
+    };
+
+    intentoDosCall(2,(parteUno, totalizado)=>{
+      console.log("Practica CALL BACK DOS ");
+      console.log(`Práctica dos CALLBACK 1= ${parteUno}, ${totalizado}`);
+        intentoDosCall(4,(parteUno, totalizado)=>{
+          console.log(`Práctica dos CALLBACK 2= ${parteUno}, ${totalizado}`);
+            intentoDosCall(6,(parteUno, totalizado)=>{
+              console.log(`Práctica dos CALLBACK 3= ${parteUno}, ${totalizado}`);
+              console.log("FINALIZACIÓN PRÁCTICA DOS CALLBACKS");
+            })
+        })
+    })
+
+  </script>
+</body>
+</html>
