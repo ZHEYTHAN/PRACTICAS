@@ -60,6 +60,148 @@
         })
     })
 
+    function callBackk (setUno, setDos){
+      setTimeout(() => {
+        setDos(setUno, setUno * setUno)
+      }, 1800);
+    }
+
+    callBackk(3,(setUno, resultadoAqui)=>{
+      console.log("INICO DE PRUEBA TRES -- CALLBACK");
+      console.log(`callBack # TRES= ${setUno}, ${resultadoAqui}`);
+        callBackk(7,(setUno,resultadoAqui)=>{
+          console.log(`callBack # TRES= ${setUno}, ${resultadoAqui}`);
+            callBackk(11,(setUno,resultadoAqui)=>{
+              console.log(`callBack # TRES= ${setUno}, ${resultadoAqui}`);
+                callBackk(13,(setUno, resultadoAqui)=>{
+                  console.log(`callBack # TRES= ${setUno}, ${resultadoAqui}`);
+                    callBackk(17,(setUno, resultadoAqui)=>{
+                      console.log(`callBack # TRES= ${setUno}, ${resultadoAqui}`);
+                    })
+                })
+            })
+        })
+    })
+
+    function practicePromise (unValor){
+      if(typeof unValor !== "number"){
+        return Promise.reject(`El valor ingresado "${unValor}" NO es de tipo número`);
+      }
+
+      return new Promise((primerResultado, primerRechazo)=>{
+        setTimeout(() => {
+          primerResultado({
+            unValor,
+            primerResultado: unValor * unValor,
+          })
+        }, 2200);
+      })
+    }
+
+    practicePromise(111)
+    .then((objectOne)=>{
+      console.log("INICIO PRÁCTICA UNO DE  ########## PROMISE ############");
+      console.log(`PROMISE= "${objectOne.unValor}", ${objectOne.primerResultado}`);
+      return practicePromise(222);
+    })
+    .then((objectOne)=>{
+      console.log(`PROMISE= ${objectOne.unValor}, ${objectOne.primerResultado}`);
+      return practicePromise(333);
+    })
+    .then((objectOne)=>{
+      console.log(`PROMISE= ${objectOne.unValor}, ${objectOne.primerResultado}`);
+      return practicePromise(444)
+    })
+    .then((objectOne)=>{
+      console.log(`PROMISE= ${objectOne.unValor}, ${objectOne.primerResultado}`);
+      console.log("FINALIZACIÓN PRUEBA UNO DE PROMISE //*************************************// ");
+    })
+
+
+    function secondPromise(firstValue){
+      
+        if(typeof firstValue !== "number"){
+          return Promise.reject(`El valor indicado ${firstValue} no es un número`)
+        }
+     
+
+      return new Promise((resultP, rechazoP)=>{
+        setTimeout(() => {
+          resultP({
+            firstValue,
+            resultP: firstValue * firstValue
+          });
+          
+        }, 2300);
+      });
+    }
+
+    secondPromise(999)
+    .then((xxx)=>{
+      console.log("Inicio de práctica DOS de ######## PROMISE ########### ");
+      console.log(`Promise 2= ${xxx.firstValue}, ${xxx.resultP}`
+      );
+      return secondPromise(888)
+    })
+    .then((xxx)=>{
+      console.log(`Promise 2= ${xxx.firstValue}, ${xxx.resultP}`);
+      return secondPromise(777)
+    })
+    .then((xxx)=>{
+      console.log(`Promise 2= ${xxx.firstValue}, ${xxx.resultP}`);
+      return secondPromise(666)
+    })
+    .then((xxx)=>{
+      console.log(`Promise 2= ${xxx.firstValue}, ${xxx.resultP}`);
+      return secondPromise(555)
+    })
+    .then((xxx)=>{
+      console.log(`Promise 2= ${xxx.firstValue}, ${xxx.resultP}`);
+      console.log("FINALIZACIÓN DE SEGUNDA PRÁCTICA DE ################ PROMISE ##############");
+    })
+
+
+    function thirdPromise (insertValue){
+
+      if(typeof insertValue !== "number"){
+        return Promise.reject(` ¡¡ "${insertValue}" No es un valor de tipo numérico!! `)
+      }
+
+      return new Promise((firstResult,rechazoValue )=>{
+        setTimeout(() => {
+          firstResult({
+            insertValue,
+            firstResult: insertValue * insertValue
+          })
+        }, 2400);
+      })
+    }
+
+
+    thirdPromise(123)
+    .then((firstObject)=>{
+      console.log("INICIO DE LA TERCERA Y ÚLTIMA PRÁCTICA DE PROMISE // ********************* //");
+      console.log(`PROMISE #3= ${firstObject.insertValue}, ${firstObject.firstResult}`)
+      return thirdPromise(456)
+    })
+    .then((firstObject)=>{
+      console.log(`PROMISE #3= ${firstObject.insertValue}, ${firstObject.firstResult}`);
+      return thirdPromise(789)
+    })
+    .then((firstObject)=>{
+      console.log(`PROMISE #3= ${firstObject.insertValue}, ${firstObject.firstResult}`);
+      return thirdPromise(321)
+    })
+    .then((firstObject)=>{
+      console.log(`PROMISE #3= ${firstObject.insertValue}, ${firstObject.firstResult}`);
+      return thirdPromise(654)
+    })
+    .then((firstObject)=>{
+      console.log(`PROMISE #3= ${firstObject.insertValue}, ${firstObject.firstResult}`);
+      console.log("FINALIZACIÓN DE PRÁCTICA #3 DE PROMISE //************************************************************//");
+    })
+
+
   </script>
 </body>
 </html>
