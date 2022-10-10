@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Symbols CAP 49 js -- NUEVOS TIPOS DE DATOS</title>
+</head>
+<body>
+  <h1>Symbols CAP 49 js --- NUEVOS TIPOS DE DATOS EN JAVASCRIPT</h1>
+  <script>
+
+    // El uso más cotidiano de los Symbol() es para crear propiedades privadas de los objetos.
+
+
+  let iD = "Hola";
+  let iD2 = "Hola";
+  
+  console.log(iD === iD2);
+  /* Aquí da true ya que ambas variables contienen strings
+  */
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
+// Para usar el Symbol() no se debe usar el constructor new.
+let id = Symbol("id");//Dentro del parentecis se puede poner "y un nombre que funciona como etiqueta del Symbol" o un número para etiqueta.
+let id2 = Symbol();
+
+console.log(id === id2);
+/* Aquí da false ya que, lo que hace Symbol() es darle un valor Único a cada variable que hace que sea diferente aunque lleve el mismo nombre. */
+console.log(id, id2); // Imprimirá dos Symbol().
+console.log(typeof id, typeof id2);
+
+const NOMBRE = Symbol("Nombre");
+
+const SALUDAR = Symbol("Saludar"); // Esta variable se crea para hacer una función / metodo y se usará después de la línea 50.
+
+
+const persona = {
+[NOMBRE]:"Andy", // Se usa entre corchetes para que Js Sepa que se le va a asignar. // Es para declarar la anotación dentro del objeto {[]}
+
+edad: 35 // Este se adiciona para que aparezca como propiedad en el console.log() de las líneas 69 y 70.
+}
+
+console.log(persona);
+
+persona.NOMBRE = "Andrés Páez"
+console.log(persona);
+
+console.log(persona.NOMBRE);// Es para que se imprima solo el nombre "Andrés Páez"
+
+console.log(persona[NOMBRE]); //Este es para imprimir "Andy"
+
+
+//Aquí se hace aplicación de una función dentro de la variable persona aplicando el Symbol()
+persona[SALUDAR] = function() {
+  console.log(`Hola`)
+}
+
+//Este está imprimiendo como tal todo el objeto ↓↓↓
+console.log(persona);
+
+//Y así es para imprimir `Hola`, ya que se invoca como si fuera una función. ↓↓↓
+persona[SALUDAR]();
+
+//Para recorrer las propiedades del objeto se usara el for in.
+//Aquí lo que imprime es las propiedades, es este caso solo se detecta NOMBRE (Que se puede ver en consola del navegador cuando se imprime)
+for(let propiedad in persona){
+  console.log(propiedad);// Con este muestra el nombre de la propiedad= NOMBRE
+  console.log(persona[propiedad]); //Con este muestra lo que está dentro de la propiedad (El valor interno de la propiedad) "Andrés Páez"
+}
+
+//Como alistar los Symbol() ==> Los atributos privados del objeto -- se hace con el siguiente metodo.
+
+console.log(Object.getOwnPropertySymbols(persona)); //Así se imprime para que aparezca como un array (Arreglo[])
+
+
+//Sigue cap 50  sets
+  </script>
+</body>
+</html>
