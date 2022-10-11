@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SET ---- CAP 50</title>
+</head>
+<body>
+  <h1>SET ---- CAP 50  </h1>
+
+  <script>
+
+    //Con Set() Si se debe usar el operador new
+    //Set() lo que hace es eliminar los elementos duplicados.
+    const set = new Set([1,2,3,3,4,5,true,false,false,{},{},"hola","HOla"]);
+
+    console.log(set);
+    //A diferencia de otros casos en donde se usaba .length para saber la cantidad de elementos, con Set() se debe usar el ,size para saber la cantidad de elementos ↓↓↓
+    console.log(set.size); // Y así de esa forma va a imprimir el número de elementos que hay dentro de Set().
+
+
+    //AHORA BIEN, TAMBIÉN SE PUEDE USAR DE LA SIGUIENTE FORMA=
+
+    const set2 = new Set();
+    set2.add(1);
+    set2.add(2);
+    set2.add(2);
+    set2.add(3);
+    set2.add(true);
+    set2.add(false);
+    set2.add(true);
+    set2.add({});
+
+    //Y de igual forma se puede invocar y usar el .size
+    console.log(set2);
+    console.log(set2.size);
+
+    //AHORA, PARA IMPRIMIR TODO LO QUE HAYA DENTRO SIN INCLUIR LO QUE ESTÁ REPETIDO, SE PUEDE USAR EL METODO FOR: ↓↓↓
+    //Vamos a usar el primer set para el ejemplo ↓↓
+    console.log("*********** RECORRIENDO SET ↓↓ **********");
+    
+    for(item of set){
+      console.log(item);
+    }
+    
+    //TAMBIÉN SE PUEDE USAR EL METODO forEach:  ↓↓↓
+    //Se usará el set2 para el ejemplo:
+    console.log("*********** RECORRIENDO SET2 ↓↓ **********");
+    
+    set2.forEach(item => console.log((item)));
+
+    //Ahora como Set() es un tipo de dato iterable (Que se puede partir en partes más pequeñas / o se puede fraccionar por pequeñas unidades) se puede llegar con coordenada a un elemento en especifico en caso de que se requiera.
+    //Se debe tener presente que para llegar por coordenada a un elemento en especifico es porque sea un array (Arreglo) y set() no es un arreglo, sin embargo, si se puede "Transformar o convertir" en arreglo: ↓↓↓
+    //Se usa el metodo from para convertirlo en Array: ↓↓↓
+
+
+    //Para que from funcione primero se debe de crear una variable let:
+    //Se usara el primer Set() para el ejemplo:
+
+    let arr = Array.from(set);
+
+    //Así se imprime y muestra todo como un arreglo (Array) entre llaves []
+    console.log(arr);
+
+    //Aquí ya se puede especificar en coordenada
+    console.log(arr[0]);
+    console.log(arr[9]);//En este se imprime la palábra hola del primer Set().
+
+
+    //Ahora, a los Set() también se les puede eliminar datos como en los Array, para ello se debe de usar .delete y especificar escrito tal cual lo que se va a borrar, como ejemplo se usará el primer set y se eliminará la palabra HOla:
+
+    set.delete("HOla");
+    //Se llama a consola para comprobar:
+    console.log(set); //Ya no mostrara los 11 elementos, mostrará 10
+
+
+    //Ahora, se puede validar si un valor existe dentro de un Set(), para ello se usa .has() y se escribe lo que se quiere comprobar, para ello usaremos el primer set:  ↓↓↓
+
+    console.log(set.has("hola")); //Si lo que se busca existe, dará un true, si no existe dará un false. --- aquí dará true
+    console.log(set.has(19)); //Aquí dará false.
+
+
+    //Para limpiar un set, se puede usar el método .clear(), para este ejemplo usaré el set2:  ↓↓↓
+    
+    set2.clear();
+    //Se imprime un console para validar que haya funcionado: ↓↓↓
+    console.log(set2);
+
+  </script>
+</body>
+</html>
