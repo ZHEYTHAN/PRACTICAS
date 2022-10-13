@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iterables & iterators --- cap 53</title>
+</head>
+<body>
+  <h1>Iterables & iterators --- cap 53</h1>
+  <script>
+    //Iterables & iterators --- cap 53
+
+    //Iterable es el elemento que su contenido se puede recorrer.
+    //El iterador es ese apuntador que está recorriendo los elementos.
+
+    const iterable = [1,2,3,4,5];
+
+
+    //Accedemos al iterador del iterable.
+    const iterador = iterable[Symbol.iterator]();
+
+    console.log(iterable); //Imprime el arreglo normal.
+    console.log(iterador); //Solo muestra el Array iterator {}.
+
+    // min 8
+
+
+
+
+  </script>
+</body>
+</html>
