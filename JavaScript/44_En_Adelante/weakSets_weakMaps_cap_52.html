@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeakSets & WeakMaps CAP__52</title>
+</head>
+<body>
+  <h1>
+    WeakSets & WeakMaps CAP__52
+  </h1>
+  <script>
+    //WeakSets & WeakMaps (Conjuntos débiles y mapas débiles )
+    /*
+    Estos se podrían tomar como los hermanos menores de Set() y Map(), y a diferencia de ellos, estos no son elementos iterables, es decír que no se puede usar ningún for con ellos.
+    Tampoco se puede usar el método .clear para limpiar sus datos --- solo se pueden eliminar de uno en uno.
+    Tampoco se puede verificar su tamaño, es decir, no se puede usar el .size 
+
+    */
+
+   // const ws = new WeakSet([1,2,3,3,4,5,true, true, false, false, {},{}, "Hola"]) 
+   // A diferencia de un set normal, el WeakSet() no permite almacenar la información así, para ello se tiene que hacer de manera individual de la siguiente forma; Este se deja comentado para que no genere error, ya que este como está escrito va a generar error.
+   //Tener presente de que los WeakSet() Solo aceptan OBJETOS!!
+
+   const ws = new WeakSet();
+
+   //Para adicionar los valores, se debe hacer de manera individual, para ello vamos a crear variables let con cada valor:
+   let valor1 = {"Valor1":1};
+   let valor2 = {"Valor2":2};
+   let valor3 = {"Valor3":3};
+
+   // Y para agregarlos se usa el .add(NombreDeVariable);
+    ws.add(valor1);
+    ws.add(valor2);
+
+    //Se imprime un console.log() para constatar de que se haya agregado correctamente.
+    console.log(ws);
+
+    //También se puede validar con .has para verificar que se haya agregado:
+
+    console.log(ws.has(valor1)); //Aquí dará true ya que si fue agregado.
+    console.log(ws.has(valor3)); // Aquí dará false ya que esta no se ha agregado aún.
+
+    //Para Eliminar se hace también de uno por uno, ejemplo:
+
+    ws.delete(valor2); //Aquí se está eliminando la variable #2 unicamente.
+    console.log(ws); //En la consola, al imprimir la variable ws va a aparecer nada más el objeto de valor1.
+
+
+    // Ahora se hará la adición de los tres valores.
+    //No se agrega el valor Uno ya que anteriormente ya fue agregado y no se eliminó, se adiciona el dos que se había borrado y el tres que no había sido agregado.
+    ws.add(valor2);
+    ws.add(valor3);
+    console.log(ws); // Aquí se imprime para verificar que se hayan agregado, dando como resultado tres objetos/valores.
+
+    //Aquí se va a usar el set interval para hacer una impresión por cada segundo.
+    
+    // setInterval(() => {
+    //   console.log(ws);
+    // }, 1000);
+
+    // setTimeout(() => {
+    //   valor1= null;
+    //   valor2= null;
+    //   valor3=null;
+    // }, 5000);
+
+    //Los dos setTime se dejan comentados porque sino se siguen ejecutando.
+  //Aquí termina el WeakSet();
+
+  console.clear();
+
+  /*
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  */
+
+  // WeakMap();
+
+
+  /*  
+      Al igual que sucede con WeakSet(), con WeakMap() se tiene que agregar los valores de manera individual, ya que de esta forma también va a generar error al momento de aparecer en consola.
+      se deja comentado precisamente por el error que aparece en consola.
+
+  const wm = new WeakMap([
+      ["nombre", "KeNaI"],
+      ["edad", 7],
+      ["animal", "perro"],
+      [null, "nulo"]
+  ]);
+
+  Los valores a agregar también deben estar referenciados en una variable para poder ser agregados de manera individual.
+  */
+
+      const wm = new WeakMap();
+
+      let llave1 = {};
+      let llave2 = {};
+      let llave3 = {};
+
+      //Las llaves se ponen vacias y representa la llave, y se agregar el value por aparte:
+      wm.set(llave1, 1); // {} => 1
+      wm.set(llave2, 2); // {} => 2
+      console.log(wm);//Se imprime para validar.
+
+      //Al igual que en el caso anterior, en este tampoco se puede usar el .size() para ver la cantidad de objetos dentro de WeakMap();
+
+
+      //Ahora, si se puede usar el .has para poder validar de que si existan los valores dentro.
+    
+      console.log(wm.has(llave1));//En este dar´ra true ya que está agregado dentro del weakMap();
+      console.log(wm.has(llave3));//Este dará false ya que no se ha agregado aún.
+
+
+      //Ahora para poder obtener (Invocar/imprimir) los valores de estos, se puede usar el metodo obtenedor .get()
+
+      console.log(wm.get(llave1));// Aquí dará el valor 1 que es el que hay ingresado en esta llave.
+      console.log(wm.get(llave2));// Aquí dará el valor 2 que es el que hay ingresado en llave2
+      console.log(wm.get(llave3));// Aquí dará undefined ya que este valor no se ha agregado aún.
+
+
+      //Para la eliminación también se puede usar el metodo .delete().
+
+      wm.delete(llave2); //Aquí se eliminará la llave2.
+      console.log(wm); //Se imprime wm para verificar de que se haya eliminado la llave2 // Con ello debe mostrar un solo valor.
+
+
+      //Ahora se establecerá los tres valores.
+
+      wm.set(llave2,2);
+      wm.set(llave3, 3);
+
+      console.log(wm); //Para validar de que se hayan agregado los valores / deben aparecer los tres valores llave1, llave2, llave3.
+      
+
+      //para comprobar la nulificación es que se usa el setTime (Como ejemplo).
+
+      //Aquí mostrara los elementos con normalidad
+      setInterval(() => {
+        console.log(wm);
+      }, 1000);
+
+
+      //A partir de 5000ms debe aparecer vacio este WeakMap() vacio.
+      setTimeout(() => {
+        llave1 = null,
+        llave2 = null,
+        llave3 = null
+      }, 5000);
+
+      /// FINALIZACIÓN --- SIGUIENTE CAP 53 -- ITERABLES
+
+      </script>
+</body>
+</html>
