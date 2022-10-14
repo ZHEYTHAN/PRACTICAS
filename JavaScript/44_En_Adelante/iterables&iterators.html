@@ -23,7 +23,83 @@
     console.log(iterable); //Imprime el arreglo normal.
     console.log(iterador); //Solo muestra el Array iterator {}.
 
-    // min 8
+    //console.log(iterador.next()) //Esta propiedad va a devolver un objeto con los valores, uno es value que indica la cantidad de objetos que hay (los imprime de uno en uno, es decir que para ver más se tiene que llamar varios console.log()), y el otro valor es el done: valor booleano que indica si ya se acabaron los elementos.
+    //console.log(iterador.next()) //Value 2
+    //console.log(iterador.next()) //value 3
+    //console.log(iterador.next()) //value 4
+    //console.log(iterador.next()) //value 5  -- del const iterable es de donde salen estos números  ↑↑
+    //console.log(iterador.next()) // Al ya no haber más números va a dar un value: undefined y un done: true (Dará true cuando ya no hayan más valores por imprimir).
+    // LA ANTERIOR FORMA CON ESOS CONSOLE.LOG FUE DE LA MANERA MANUAL, PARA QUE SE GENERE DE FORMA "AUTOMÁTICA" PODEMOS USAR UN CICLO.
+
+    //Uso del ciclo:
+
+    let next = iterador.next(); //Creo que esta variable es para que funcione el while.
+
+    //Aquí se usa el ciclo while
+    while(!next.done){ // mientras next sea diferente a donde
+      console.log(next.value); // imprime solo valor
+      next = iterador.next(); // para que saque los demás valores.
+    }
+
+    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/
+
+    //También se podría usar con new Set()
+
+    const iterable2 = new Set([1,2,3,3,3,4,5,5,6,6,6]);
+
+    const iterador2 = iterable2[Symbol.iterator]();
+
+    //console.log(iterable2);
+    //console.log(iterador2); //Aquí si lo toma como un Set Iterator()
+
+    let next2 = iterador2.next();
+
+    while(!next2.done){
+      console.log(next2.value);
+      next2 = iterador2.next();
+    }
+
+    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/
+
+    //Aquí se realizará lo mismo pero con una cadena de texto.
+
+    const iterable3 = "Hola Mundo";
+
+    const iterador3 = iterable3[Symbol.iterator]();
+
+    console.log(iterable3);
+    console.log(iterador3);
+
+    let next3 = iterador3.next();
+
+    while(!next3.done){
+      console.log(next3.value);
+      next3 = iterador3.next();
+    }
+
+    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/    /************************************************************************************************/
+
+    //Y aquí se realiza con un new Map();
+
+    const iterable4 = new Map([["Andrés", "Páez"], ["Edad", 35]])
+
+    const iterador4 = iterable4[Symbol.iterator]();
+
+    console.log(iterable4);
+    console.log(iterador4);
+
+    let next4 = iterador4.next();
+
+    while(!next4.done){
+      console.log(next4.value);
+      next4 = iterador4.next();
+    }
+
+    // De manera general estos son los ejemplos de los iteradores en lo que ya se ha visto previamente.
+    // SIGUE CAP 54 GENERATORS
+
+
+
 
 
 
