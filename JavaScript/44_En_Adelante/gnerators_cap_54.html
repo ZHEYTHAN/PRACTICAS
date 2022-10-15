@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GENERATORS CAP 54</title>
+</head>
+<body>
+  <h1>GENERATORS CAP 54</h1>
+  <script>
+    //GENERATORS CAP 54 
+
+    // Para que tenga un generator solo se debe poner un asterísco segui de la palabra function y sin espacios, es decir: function*
+
+    // YIELD ES COMO UN RETURN PERO SOLO PARA LOS GENERATORS.
+
+    function* iterable(){
+      yield "Hola";
+      console.log("Hola Consola");
+      yield "Hola 2";
+      console.log("Seguimos con más instrucciones de nuestro código");
+      yield "Hola 3";
+      yield "Hola 4";
+    }
+
+    let iterador = iterable(); // Este es el iterador.
+
+    // Aquí se invoca / imprime de manera manual
+
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    // console.log(iterador.next());
+    // console.log(iterador.next()); //Aquí el value ya da undefined y el done da true ya que aquí ya no habría más valores.
+    //Se puede decir que maneja el mismo comportamiento en tipos de datos iterables, pero aplicados en una función.
+
+    //Ahora, también se puede hacer de manera automática con un ciclo for. (Se usará un for of)
+
+    for (let y of iterador){
+      console.log(y); 
+    }
+
+    //También se pueden guardar los datos que retornar yield en un arreglo:
+
+    const arr = [...iterable()]; // Se debe usar el xpress operator (...)
+
+    console.log(arr);
+
+
+  </script>
+</body>
+</html>
