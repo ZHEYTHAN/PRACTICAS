@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Práctica conjunta de Callback, Promise & async (await)</title>
+</head>
+<body>
+  <h1>
+    Práctica conjunta de Callback, Promise & async (await).
+  </h1>
+  <script>
+
+    function callPractice (valUno,callB){
+      setTimeout(() => {
+        callB(valUno, valUno * valUno)
+      }, 1500);
+    }
+
+    callPractice(1,(valUno, resultado)=>{
+      console.log("################### INICIO DE CALLBACK #######################")
+      console.log(`CallBack Uno= ${valUno}, ${resultado}`);
+        callPractice(2,(valUno, resultado)=>{
+          console.log(`CallBack Uno= ${valUno}, ${resultado}`);
+            callPractice(3,(valUno, resultado)=>{
+              console.log(`CallBack Uno= ${valUno}, ${resultado}`);
+                callPractice(4,(valUno, resultado)=>{
+                  console.log(`CallBack Uno= ${valUno}, ${resultado}`);
+                    callPractice(5,(valUno, resultado)=>{
+                      console.log(`CallBack Uno= ${valUno}, ${resultado}`);
+                      console.log("******************// FINALIZACIÓN DE CALLBACK //***************");
+                    })
+                })
+            })
+        })
+    })
+
+// de está función que sera promesa, se reusara para hacer consumo en async
+    
+  function promisePractice (valDos){
+    if(typeof valDos !== "number"){
+    return Promise.reject(`El carácter ingresado "${valDos}" no es de tipo Número, verifique e intente nuevamente`);
+  }
+
+      return new Promise((resultDos, tipoRechazo)=>{
+        setTimeout(() => {
+          resultDos({
+            valDos,
+            resultDos: valDos * valDos
+          })
+        }, 1800);
+      })
+  }
+
+  promisePractice(6)
+  .then((obj)=>{
+    console.log("######################### INICIO DE PROMISE ##########################")
+    console.log(`Promise Uno= ${obj.valDos}, ${obj.resultDos}`);
+    return promisePractice(7)
+  })
+  .then((obj)=>{
+    console.log(`Pormise Uno= ${obj.valDos}, ${obj.resultDos}`);
+    return promisePractice(8)
+  })
+  .then((obj)=>{
+    console.log(`Promise Uno= ${obj.valDos}, ${obj.resultDos}`);
+    return promisePractice(9)
+  })
+  .then((obj)=>{
+    console.log(`Promise Uno= ${obj.valDos}, ${obj.resultDos}`);
+    return promisePractice(10)
+  })
+  .then((obj)=>{
+    console.log(`Promise Uno= ${obj.valDos}, ${obj.resultDos}`);
+    console.log("*********************************// FINALIZACIÓN DE PROMISE UNO //*************************** ");
+  })
+  .catch((errorUno)=>console.error(errorUno));
+
+ 
+  function tryCallBack (firstValue, callBack){
+    setTimeout(() => {
+      callBack(firstValue, firstValue * firstValue)
+    }, 2100);
+  }
+
+  tryCallBack(11,(firstValue, resulte)=>{
+    console.log("################################### INICIO DE SEGUNDA PRÁCTICA DE CALLBACK ##############################");
+    console.log(`CALLBACK DOS= ${firstValue}, ${resulte}`);
+      tryCallBack(12,(firstValue,resulte)=>{
+        console.log(`CALLBACK DOS= ${firstValue}, ${resulte}`);
+          tryCallBack(13,(firstValue,resulte)=>{
+            console.log(`CALLBACK DOS= ${firstValue}, ${resulte}`);
+              tryCallBack(14,(firstValue, resulte)=>{
+                console.log(`CALLBACK DOS= ${firstValue}, ${resulte}`);
+                  tryCallBack(15,(firstValue, resulte)=>{
+                    console.log(`CALLBACK DOS= ${firstValue}, ${resulte}`);
+                    console.log("***************************// FINALIZACIÓN DE SEGUNDA PRÁCTICA DE CALLBACK DOS //****************************");
+                  })
+              })
+          })
+      })
+  })
+
+  function promiseDos (valorPromise){
+    if(typeof valorPromise !== "number"){
+      return Promise.reject(`El caracter ingresado "${valorPromise}" no es de tipo número `)
+    }
+
+    return new Promise((totalPromise, rechazoPromise)=>{
+      setTimeout(() => {
+        totalPromise({
+          valorPromise,
+          totalPromise: valorPromise * valorPromise
+        })
+      }, 2400);
+    })
+  }
+
+  promiseDos(16)
+  .then((objeto)=>{
+    console.log("################################# INCIO DE PRÁCTICA DE PROMISE DOS ############################")
+    console.log(`PROMISE DOS= ${objeto.valorPromise}, ${objeto.totalPromise}`);
+    return promiseDos(17);
+  })
+  .then((objeto)=>{
+    console.log(`PROMISE DOS= ${objeto.valorPromise}, ${objeto.totalPromise}`);
+    return promiseDos(18);
+  })
+  .then((objeto)=>{
+    console.log(`PROMISE DOS= ${objeto.valorPromise}, ${objeto.totalPromise}`);
+    return promiseDos(19)
+  })
+.then((objeto)=>{
+  console.log(`PROMISE DOS= ${objeto.valorPromise}, ${objeto.totalPromise}`);
+  return promiseDos(20)
+})
+.then((objeto)=>{
+  console.log(`PROMISE DOS= ${objeto.valorPromise}, ${objeto.totalPromise}`)
+  console.log(`****************************************************// FINALIZACIÓN DE PRACTICA PROMISE DOS //******************************************`);
+});
+
+
+  async function asyncDeclarada(){
+    try{
+      console.log(`################################## Inicio De práctica de ASYNC en  función DECLARADA #############################`);
+
+      let objett = await promiseDos(21);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(22);
+      console.log(`Async funtion: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(23);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(24);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(25);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+                     
+      console.log("***********************************// FINALIZACIÓN DE ASYN EN FUNCIÓN DECLARADA //*******************************");
+
+    } catch(err){
+      console.log(err);
+    }
+  }
+
+  asyncDeclarada();
+
+  const asyncExpresada = async() =>{
+
+    try{
+      console.log(`################################## Inicio de ASYNC en función Expresada #############################`);
+
+      let objett = await promiseDos(26);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(27);
+      console.log(`Async funtion: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(28);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(29);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+
+      objett = await promiseDos(30);
+      console.log(`Async function: ${objett.valorPromise}, ${objett.totalPromise}`);
+                     
+      console.log("***********************************// FINALIZACIÓN DE ASYN EN FUNCIÓN EXPRESADA //*******************************");
+
+      } catch(err){
+      console.log(err);
+      }
+  };
+
+  asyncExpresada();
+
+  </script>
+</body>
+</html>

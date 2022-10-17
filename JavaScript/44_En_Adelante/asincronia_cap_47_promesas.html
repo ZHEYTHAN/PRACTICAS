@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cap 47 ___ PROMESAS</title>
+  </head>
+  <body>
+    <h1>Cap 47 ___ PROMESAS</h1>
+    <script>
+      //PROMESAS
+      // Una promesa se asemeja a un if-else.
+      //  Para el ejemplo de promesa se va a usar el código (Muy similar, pero no igual), visto en la clase pasada de los callback.
+
+      function cuadradoPromise(value) {
+        if (typeof value !== "number") {
+          return Promise.reject(
+            `ERROR!! El valor "${value}" Ingresado no es un número`
+          );
+        }
+        // Esta parte ↓↓ del promise  tiene dos valores resolve(resuelto) que es para dar la respuesta positiva (Cuando se cumplen los parametros) y reject(rechazo) que es cuando se dá la respuesta negativa.
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve({
+              value,
+              result: value * value,
+            });
+          }, 0 | (Math.random() * 100));
+        });
+      }
+
+      cuadradoPromise(0)
+        // obj sería el objeto que   que recibe (Se aplica como variable en un arrow function)
+        .then((obj) => {
+          //console.log(obj);
+          console.log(`Inicio PROMISE`);
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          return cuadradoPromise(1);
+        })
+        .then((obj) => {
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          return cuadradoPromise(2);
+        })
+        .then((obj) => {
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          return cuadradoPromise(3);
+        })
+        .then((obj) => {
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          return cuadradoPromise(4);
+        })
+        .then((obj) => {
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          return cuadradoPromise(5);
+        })
+        .then((obj) => {
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          return cuadradoPromise(6);
+        })
+        .then((obj) => {
+          console.log(`Promise: ${obj.value}, ${obj.result}`);
+          console.log(`Fin promise`);
+        })
+        .catch((err) => console.error(err));
+
+      /*
+       *********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+       */
+
+      function intentoDosPromise(valor) {
+        if (typeof valor !== "number") {
+          return Promise.reject(
+            `El valor ingresado "${valor}" no es de tipo número`
+          );
+        }
+        return new Promise((resuelto, rechazo) => {
+          setTimeout(() => {
+            resuelto({
+              valor,
+              resultado: valor * valor,
+            });
+          }, 0 | (Math.random() * 1000));
+        });
+      }
+
+      intentoDosPromise(0)
+        .then((objeto) => {
+          console.log("Inicio de Intento Dos de promise");
+          console.log(`Promise= ${objeto.valor}, ${objeto.resultado}`);
+          return intentoDosPromise(1);
+        })
+        .then((objeto) => {
+          console.log(`PROMISE: ${objeto.valor}, ${objeto.resultado}`);
+          return intentoDosPromise(2);
+        })
+        .then((objeto) => {
+          console.log(`Promise: ${objeto.valor}, ${objeto.resultado}`);
+          return intentoDosPromise(3);
+        })
+        // Sin el console.log(`ProMise= ${objeto.valor}, ${objeto.resultado}`) no me va a dar el resultado del número 3
+        .then((objeto) => {
+          console.log(`ProMise= ${objeto.valor}, ${objeto.resultado}`);
+          console.log("Fin de intento Dos");
+        })
+        .catch((error) => console.error(error));
+
+      // SIGUE VIDEO 48 ASYNC
+    </script>
+  </body>
+</html>

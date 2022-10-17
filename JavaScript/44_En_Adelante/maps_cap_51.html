@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAPS  CAP 51</title>
+</head>
+<body>
+  <h1>
+    MAPS  CAP 51
+  </h1>
+  <script>
+    //Se va a ver l a propiedad MAP()
+    //Se usa como una colección de datos que están relacionados entre sí.
+
+    let mapa = new Map();
+    //Para agregar valores a los Map(), se agrega de dos formas, la primera forma es: ↓↓↓
+    //primera forma:
+    mapa.set("Nombre","Andrés");
+    mapa.set("Apellido", "Páez");
+    mapa.set("Edad", 27);
+
+    console.log(mapa);
+    console.log(mapa.size);//De igual forma que como en los Set(), En Map() para saber cuantos elementos hay, se usa la propiedad .size => eje: mapa.size()
+
+    //Para saber si existe alguna llave que se necesite de buscar, también se peude usar el .has() eje:
+    console.log(mapa.has("Correo")); // Dara false porque no existe dentro de mapa.(mapa es el let que se usa como ejemplo).
+    console.log(mapa.has("Nombre")); // Este dará true ya que "Nombre" si existe en mapa.
+
+    //Si quiero obtener por ejemplo el Nombre "Andrés", se usa el obtenedor get:
+    console.log(mapa.get("Nombre"));//En consola se imprimira lo que se relaciona con "Nombre" es decir: "Andrés".
+
+    //Para sobreescribir los valores, por ejemplo de "Nombre", se puede usar la propiedad .set(), eje:
+    console.log(mapa.set("Nombre", "Andy Páez"));
+    console.log(mapa.get("Nombre")); // Este console.log() es para confirmar que se haya sobreescrito el elemento "Nombre".
+
+    //También se puede eliminar propiedades, por ejemplo, eliminar "Apellido" de let mapa, eje:
+    //Se usa .delete()
+    mapa.delete("Apellido");
+    console.log(mapa); //Este console.log() es para confirmar que la propiedad "Apellido" se haya eliminado, debe dar solo dos propiedades, ya que anteriormente tenía tres.
+
+    //Para recorrer el Map() se peude usar el for pero con destructuración.
+
+    for (let [key, value] of mapa){
+      console.log(`Llave: ${key}, valor: ${value}`);
+    }
+    
+    //Y así sería con un for sencillo
+    for (item of mapa){
+      console.log(item);
+    }
+
+    /* ********************************* */
+    /* ********************************* */
+    console.clear()                      //
+    /* ********************************* */
+    /* ********************************* */
+
+
+    //Los .Map(), permiten el uso de llaves diferentes a strings Y/O números (Es decír que permite como llave NaN, NULL undefined, etc... Aunqué no es muy recomendable).
+    mapa.set(19, "Diecinueve")
+    mapa.set(false, "Falso")
+    mapa.set({}, {})
+    console.log(mapa);
+
+
+   for (let [key, value] of mapa){
+      console.log(`Llave: ${key}, valor: ${value}`);
+    }
+
+    /* ********************************* */
+    /* ********************************* */
+    console.clear()                      //
+    /* ********************************* */
+    /* ********************************* */
+    /**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+
+    //Aquí vamos a ver la segunda forma de agregar valores a Map()  
+
+
+  const mapa2 = new Map([
+    ["nombre", "KeNaI"],
+    ["edad", 7],
+    ["animal", "perro"],
+    [null, "nulo"]
+  ]);
+
+  console.log(mapa2);
+
+    //En este se puede guardar a un lado llaves y en otroo valores por medio de la destructuración: (keys y values)
+
+    const llavesMapa2 = [...mapa2.keys()]; //Este es para separar las llaves
+    const valoresMapa2 = [...mapa2.values()]; //Este es para separa los valores
+
+    console.log(llavesMapa2);
+    console.log(valoresMapa2);
+
+    // siguiente: CAP 52 Weaksets & weakmaps
+
+
+  </script>
+</body>
+</html>

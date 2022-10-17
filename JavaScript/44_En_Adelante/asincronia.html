@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asincronía en JavaScript</title>
+  </head>
+  <body>
+    <h1>Asincronía en JavaScript</h1>
+    <script>
+      // console.log("INICIO");
+
+      // //El tiempo en los setTimeout se toma en milisegúndos, lo que equivale a 1000ms = 1 segundo.
+      // setTimeout(() => {
+      //   console.log("Ejecutando un setTimeot, esto se ejecuta una sóla vez");
+      // }, 2000);
+
+      // setTimeout(() => {
+      //   console.log("prueba dos");
+      // }, 4000);
+
+      // setTimeout(() => {
+      //   console.log("Prueba Número tres en tiempo");
+      // }, 6000);
+
+      // //también toma el tiempo en milisegundos.
+      // setInterval(() => {
+      //   console.log("Ejecutando un setInterval, esto se ejecuta indefinidamente cada cierto intevalo de tiempo");
+      // }, 2500);
+
+      // setInterval(() => {
+      //   console.log("prueba Número dos de Intervalo 1800ms");
+      // }, 1800);
+
+      // setInterval(() => {
+      //   console.log("Prueba Número tres a 870ms");
+      // }, 870);
+
+      //Este es para hacer un reloj:
+
+      // setInterval(() => {
+      //   console.log(new Date().toLocaleTimeString())
+      // }, 1000);
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      /*
+      setTimeout y setInterval tienen su contra parte o por decirlo de otra forma, tiene un modo para ser detenidos o cancelados (Que son funciones que lo cancelan), por ejemplo: 
+      */
+
+      //Para que esto funcione en setTimeout() Este debe ser declarado primero como variable para que clearTimeout()
+      //aquí el ejemplo de la variable y de la función clearTimeout();
+
+      // let temporizador = setTimeout(() => {
+      //   console.log(new Date().toLocaleTimeString());
+      // }, 1000);
+
+      // clearTimeout(temporizador);
+
+      // //para probar que si funciona, se ejecuta un console.log() después del clear.
+
+      // console.log("Después del clear");
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+      /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      /*
+      Este es el ejemplo para setIntervale, de igual forma se debe de convertir en una variable para poder utilizar la función que lo detiene.
+      */
+      let temporizadorDos = setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+      }, 1000);
+
+      clearInterval(temporizadorDos);
+
+      // De igual forma se va a usar un console.log() después del clearInterval() para demostrar que si ejeuta la consola.
+
+      console.log("Después del clearInterval");
+      //////////////////////////77
+      console.clear();
+
+      //////////////////////////////////////////
+
+      let parteCasa = setInterval(() => {
+        console.log(new Date().toLocaleTimeString());
+      }, 1000);
+
+      clearInterval(parteCasa);
+
+      console.log("Nuevamente después de clearInterval.");
+
+      /// Ya no registra más en el video, se creará un nuevo archivo por cada video a partir de el video 44
+    </script>
+  </body>
+</html>
