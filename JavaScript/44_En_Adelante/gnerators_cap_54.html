@@ -12,7 +12,7 @@
       //GENERATORS CAP 54
 
       // Para que tenga un generator solo se debe poner un asterísco segui de la palabra function y sin espacios, es decir: function*
-
+      //Una function puede tener hasta 255 Argumentos.
       // YIELD ES COMO UN RETURN PERO SOLO PARA LOS GENERATORS.
 
       function* iterable() {
@@ -38,20 +38,21 @@
       //Ahora, también se puede hacer de manera automática con un ciclo for. (Se usará un for of)
 
       for (let y of iterador) {
+        //Este genera una impresión de los yield que hay dentro de la function generator.
         console.log(y);
       }
-
       //También se pueden guardar los datos que retornar yield en un arreglo:
 
       const arr = [...iterable()]; // Se debe usar el xpress operator (...)
 
       console.log(arr);
 
-      //También se peude trabajar la asincronía con los generator:
-
+      //También se puede trabajar la asincronía con los generator:
       //Se usara un setTimeOut igual que al inicio de asincronía.
 
       function cuadrado(valor) {
+        // Este set time Put es para hacer prueba elevando los números al cuadraro.
+
         setTimeout(() => {
           console.log({ valor, resultado: valor * valor });
         }, 1000);
@@ -59,6 +60,7 @@
 
       function* generador() {
         console.log("Inicia generator");
+        // En los yield se está retornando la funcion que se usa en el setTimeOut().
         yield cuadrado(0);
         yield cuadrado(1);
         yield cuadrado(2);
@@ -68,13 +70,15 @@
         console.log("Termina generator");
       }
 
+      // Se imprime la funcion con generator de generador, ka function que inicia en la línea 63.
       let gen = generador();
 
+      // Este for es para recorrer --> function* generador() ==> Y este ejecuta la function cuadrado con el setTimeOut().(Lo mostrará como línea 57).
       for (let y of gen) {
         console.log(y);
       }
 
-      //siguiente cap:::  55 proxies ---  repasar este una vez más. ---- respaldo de segunda rama.
+      //siguiente cap:::  55 proxies ---  repasar este una vez más.
     </script>
   </body>
 </html>
