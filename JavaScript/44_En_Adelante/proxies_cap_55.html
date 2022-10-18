@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PROXIES --- CAP 55</title>
+</head>
+<body>
+  <h1>PROXIES --- CAP 55</h1>
+  <script>
+    //PROXIES --- CAP 55
+
+    /*
+    Es un nuevo mecanismo que tiene JavaScript, que te permite crear un objeto basado en un objeto literal inicial.
+
+    El objeto Proxy permite crear un intermediario para otro objeto, el cual puede interceptar y redefinir operaciones fundamentales para dicho objeto.
+
+    Un Proxy se crea con dos parámetros:
+
+
+    target: el objeto original que se quiere envolver.
+    handler: un objeto que define cuáles operaciones serán interceptadas y cómo redefinir dichas operaciones.
+
+    
+    */
+
+    const persona =  {
+      nombre : "",
+      apellido: "",
+      edad: 0
+
+    };
+
+    //Esta const manejador, Será el manejador (HANDLER) de la primera function persona (Serla la que haga las valdaciones correspondientes)
+    const manejador = {
+      set(obj, prop, valor){ //obj= objeto, prop= propiedad, valor= valor.
+
+        //Antes de la asignación del valor de la propiedad del objeto se puede colocar uno condicionales if  con keys para que, por ejemplo, no se agreguen más cosas que las propiedad que contiene la const persona(original) o que sea un string o cuestiones así:
+        //Estas validaciones se hacen dentro de las llaves del handler.
+        //Object.keys() Da la lista de las llaves que tiene el objeto(const persona)
+        //indexOf() busca si existe alguna coincidencia (En este caso en la lista de llaves) //Si el index devuelve un -1 significa que no existe el elemento en la lista.
+        if(Object.keys(obj).indexOf(prop) === -1){
+          return console.error(`La propiedad "${prop}" no existe en el objeto persona`);
+        }
+
+        if(
+          (prop=== "nombre" || prop === "apellido") &&
+          !(/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/g.test(valor))
+        ){
+          return console.error(`La propiedad ${prop} sólo acepta letras y espacios en blanco`);
+        }
+
+
+        obj[prop] = valor; // Esto se estructura así porque sino no toma al momento de invocar la variable que copia. // Este es la asignación del valor a la propiedad del objeto.
+      }
+    }
+
+    
+    //Esta variable andres sera la que copia y modifica la const persona.
+    const andres = new Proxy(persona, manejador); // Aqui se relaciona la variable principal "persona" y la variable handler "manejador"
+
+    console.log(andres); //Aquí registrará así  Proxy {nombre: '', apellido: '', Edad: 0}
+
+    andres.nombre= "Andrés"; //Así es como se adiciona el valor que se quiere para las propiedad de const persona.
+    andres.apellido= "Páez";
+    andres.edad= 27;
+    andres.twitter= "@andresp58297370"; //Este se toma como adicional al proxy
+
+    console.log(andres); //Con la adicion que se hace anterior, se imprimirá así: Proxy {nombre: 'Andrés', apellido: 'Páez', edad: 27}
+
+    console.log(persona); //{nombre: 'Andrés', apellido: 'Páez', edad: 27, twitter: '@andresp58297370'} // const andres (la copia) mantiene una vinculación con const persona (original).
+
+
+    //SIGUE CAP 56---
+    //HACER PRÁCTICA.
+
+  </script>
+</body>
+</html>
