@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Práctica de proxie</title>
+  </head>
+  <body>
+    <h1>Práctica de proxie</h1>
+    <script>
+      //Práctica de proxie
+
+      const familia = {
+        mama: "",
+        papa: "",
+        hermanaMayor: "",
+        hermana2: "",
+        hermano: "",
+      };
+
+      const handler = {
+        set(objeto, propiedad, valor) {
+          if (Object.keys(objeto).indexOf(propiedad) === -1) {
+            return console.error(
+              `La propiedad "${propiedad}" no existe dentro del objeto familia`
+            );
+          }
+
+          if (
+            (propiedad === "mama" ||
+              propiedad === "papa" ||
+              propiedad === "hermanaMayor" ||
+              propiedad === "hermana2" ||
+              propiedad === "hermano") &&
+            !/^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$/g.test(valor)
+          ) {
+            return console.error(
+              `La propiedad "${propiedad}" Solo admite letras y espacios en blanco`
+            );
+          }
+
+          objeto[propiedad] = valor;
+        },
+      };
+
+      const grupoFamiliar = new Proxy(familia, handler);
+
+      grupoFamiliar.mama = "Magnolia";
+      grupoFamiliar.papa = "Alonso";
+      grupoFamiliar.hermanaMayor = "Pilar";
+      grupoFamiliar.hermana2 = "Marcela";
+      grupoFamiliar.hermano = "Felipe";
+      grupoFamiliar.hermano = "Felipe";
+
+      console.log(grupoFamiliar);
+    </script>
+  </body>
+</html>
