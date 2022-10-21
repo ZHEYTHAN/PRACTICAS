@@ -14,8 +14,24 @@
   <script>
     //Propiedades dinámicas de los objetos --- CAP 56
 
+    // LO QUE VA A INDICAR DE QUE UNA PROPIEDAD LA PUEDA DEFINIR DE MANERA DINÁMICA ES LA SINTAXIS DE LOS CORCHETES !!!!! 
 
-    // Se mira primero el video completo, luego se toma apunte del video para dar un mejor analisis y comprensión del mismo.
+    let aleatorio= Math.round(Math.random()*100+5); 
+
+    const objUsuarios = {
+      propiedad: "valor", //Esta propiedad estática y la propiedad dinamica de abajo se generan para que se vea en el console log antes y después de que se agregen las prop dinamicas.
+      [`Id_${aleatorio}`] : "valor Aleatorio" //Este se pone como un valor aleatorio para que se vea los adicionales agregados dinamicamente.
+    }; // Este es el objeto al que se le agregará un arreglo de manera dinámica
+    console.log(objUsuarios);
+
+   
+    const usuarios = ["andres", "mike", "chernobyl", "kEnAi", "master"]; //Estos son los nombres que se agregarán dinámicamente al objeto objUsuarios();
+    //Con este forEach() es como se agregará de manera dinámica y adicionando Un ID a cada nombre:
+    usuarios .forEach((usuario,index)=>objUsuarios[`Id_${index}`] = usuario )
+
+    console.log(objUsuarios);//Aquí, como ya el forEach() ya ha agregado la info, en este console.log() se vera dentro del objeto objUsuarios los nombre con los id --- NOTA: en los ID iniciará desde cero ya que lo hace tomando la posición de los index que inicia desde cero.
+
+  /// Sigue cap 57 --- this
   </script>
 </body>
 </html>

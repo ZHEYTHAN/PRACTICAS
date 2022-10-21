@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>práctica de propiedades dinámicas</title>
+</head>
+<body>
+  <h1>práctica de propiedades dinámicas</h1>
+<script>
+  //práctica de propiedades dinámicas
+
+  const objUsers = {};
+  console.log(objUsers);
+
+  const users = ["A", "B", "C", "D", "E"];
+
+  users.forEach((usuario, index)=>objUsers[`identificación_ ${index}`] = usuario); // Aquí ya puede meterse un tema de consumo de Api's para solicitud de información o cuestiones así, en    
+                                                                                  //algo práctico.
+
+  console.log(objUsers);
+
+//Efectivo!!
+
+</script>
+</body>
+</html>
