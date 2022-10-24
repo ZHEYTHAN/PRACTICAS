@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THIS CAP 57</title>
+</head>
+<body>
+  <h1>THIS CAP 57</h1>
+  <script>
+    //THIS CAP 57
+
+    console.log(this); //Abre como tal el objeto window (Ventana global window)
+    console.log(window); // window es el contexto global ---  ENTONCES ===
+
+    console.log(this === window) // Dará true ya que sería lo "mismo"
+
+  
+    //Si se quiere crear una variable sin const var let, se puede hacer hacer así, pero quedaría de manera global:
+
+    this.nombre= "Contexto Global"
+    console.log(this.nombre); // Este imprime la variable global this.nombre.
+
+    ////////
+    ////////
+    ///////
+
+    //Esta función imprimir será usada en diferentes variables, leer comentarios de las variables para entender funcionalidad.
+    //Porque por ejemplo, en este momento está declarada la function dentro del contexto global, pero al ponerse dentro de un bloque, estará dentro del contexto del bloque en donde sea usado.
+    function imprimir(){  //Esta función imprime el this.nombre,, no hace nada más.
+      console.log(this.nombre);
+    }
+
+    imprimir(); //Imprime la function.
+
+
+    const obj = {                         //  Esto sería un bloque ---
+      nombre: "Contexto Objeto",          //    Al this ejecutarse dentro del bloque, sacará el nombre dentro del bloque, es decir:
+      imprimir: function(){               //  sacara this.imprimir() sacará "Contexto objeto"
+        console.log(this.nombre);         //   y se llama a consola así: 
+      }                                   //  obj.imprimir();      mencionando primero el objeto y luego la function.
+    }
+    
+    obj.imprimir()
+////////
+////////
+///////
+
+    const obj2 = {
+      nombre: "Contexto Objeto 2",
+      imprimir // Aquí iría el nombre de la propiedad imprimir + la function, pero como tienen el mismo nombre -- se puede dejar así (Para resumir se está usando la function imprimir de la línea 28     function imprimir(){console.log(this.nombre)};   )
+    };
+
+    obj2.imprimir(); // Por eso al usar la function imprimir dentro del objeto obj2, imprime es el nombre del obj2 ya que está dentro de su bloque.
+
+    ////////
+  ////////
+  ///////
+
+  const obj3 = {
+    nombre: "Contexto Objeto 3",  //
+    imprimir: () => {             // Al usarse una arrow function dentro de la function, ocasiona de que se imprima la function dentro del contexto global más no la del contexto dentro de su 
+      console.log(this.nombre)    // bloque, ya que lo que hace la arrow function es generar un enlace con el padre del objeto del que fue creado --  es decir (Aquí imprimirá el nombre: "Contexto Global") // recomendable más bien crear funciones anónimas!!
+    }
+  }
+
+  obj3.imprimir();
+
+
+  ////////
+  ////////
+  ///////
+
+  function Persona(nombre) {           // ESTO SERÍA UNA FUNCTION CONSTRUCTORA !!!
+    this.nombre = nombre;              // Entones, al ser function constructora, va a haber una variable que la modifique.
+    return console.log(this.nombre);   // Entonces, la variablque que modifique imprimira este console.log() con la modificación generada.
+  }                                    //
+
+  let andy = new Persona("Andrés") //Esta sería la variable que modifique a la function constructora Persona()
+
+  ////////
+  ////////
+  ///////
+
+  //Aquí vamos a usar el mismo proceso de function constructora --- AQUÍ SE USARÁ UNA CLAUSURA O CLOSURE (ESTO ES UNA FUNCION DENTRO DE OTRA FUNCION).
+
+   function Persona2(nombre) {          
+    this.nombre = nombre;              
+
+    return function () {
+// AL NO HABER UN this.nombre DENTRODE ESTA FUNCIÓN GENERADA, AL IMPRIMIRLO EN EL ANDY2(); SE SALE Y LEE EL this.nombre() DEL CONTEXTO GLOBAL.
+       console.log(this.nombre); // Y POR ESO ES QUE IMPRIME UN "Contexto Global"
+    }
+  } 
+
+  let andy2 = new Persona2("ANDY") // Aquí no imprimirá nada ya que no sería la forma de invocar.
+  andy2(); // Aquí imprimirá solo "Contexto Global"
+
+   ////////
+  ////////
+  ///////
+   //ENTONCES PARA SOLUCIONAR LO QUE ESTÁ EN LAS LÍNEAS DE LA 86 A LA 99 LO HAREMOS AQUÍ ↓↓↓↓↓↓↓↓
+
+   function persona3(nombre){
+    this.nombre = nombre;
+
+    return () => console.log(this.nombre); //Generando un arrow function se soluciona el tema de las closure (clausuras) y que imprima el this.nombre dentro de su bloque persona3();
+   }
+
+   let andrw = new persona3("Andrews");
+
+   andrw();
+
+
+   
+   ///////////////////////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+   //SIGUIENTE CURSO == 58 -- CALL - APPLY Y  BIND
+
+  </script>
+</body>
+</html>
