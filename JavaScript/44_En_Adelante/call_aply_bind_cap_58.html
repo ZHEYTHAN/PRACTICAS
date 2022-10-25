@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> CAPITULO 58 //---// CALL -- APPLY -- BIND</title>
+</head>
+<body>
+  <h1>CAPITULO 58 //---// CALL -- APPLY -- BIND</h1>
+
+  <script>
+    //  CAPITULO 58 //---// CALL -- APPLY -- BIND
+
+    //Esto sirve como pilar para el aprendizaje de this  ya que da un mayor entendimiento.
+
+    /*
+     CALL y APPLY son muy similares y solo cuentan con pequeñas diferencias, ambos sirven de manera similar a como funciona this.   ya que lo que hace es llamar a una función o una variable para poder hacer uso de ella.
+
+     BIND funciona de manera más similar a como funciona un arrow function --- Genera una vinculación (O linkeo) a su contenedor padre (Similar al funcionamiento de un arrow function).
+    */
+
+    console.log(this); //Estamos en el contexto global
+
+    this.lugar= "Contexto Global";
+
+    function saludar() {
+      console.log(`${this.lugar}`); //Aquí me imprimirá el contexto global.
+    }
+
+    saludar(); //Aquí llama la función saludar que mostrará el contexto luhar (de this.lugar="Contexto Lugar";)
+
+    const obj = {
+      lugar: "Contexto Objeto"
+      // saludar // -- Aquí se podría relacionar la función saludar así (Ya que el this está dentro de la misma funcion)
+      
+    }
+    // obj.saludar(); //Y Así se ejecutaría, de manera normal.
+
+    //Ahora bien, vamos a hacer lo mismo pero usando call  ↓↓↓↓↓↓
+
+    //Para usar el call, se escribe la función.call y dentro de los parentesis va escrito el objeto (variable) en donde se quiere o va a usar.
+    saludar.call(obj); //Quedaría así.
+    //Para apply sería "casi lo mismo"
+    saludar.apply(obj) //Quedaría así.
+
+    //La diferencia entre los dos es como reciben parametros, crearé una segunda funcion saludar para poder mostrar con parámetros.
+
+    //Los parámetros son los que están dentro del paréntesis: saludar2(xxxx,xxxxx)
+    function saludar2(saludo, aQuien) {
+      console.log(`${saludo} ${aQuien} desde el ${this.lugar}`)
+    }
+
+    //Para que quede el ejercicio completo, se hara un obj 2 para que quede con la funcion saludar2.
+
+    const obj2 = {
+      lugar: "Contexto Objeto 2"
+    }
+
+    saludar2("Hola", "kEnAi");//Aquí la función saludar se tomaría desde el "contexto global".
+
+    //Aquí en la forma en como se invoca es donde se presenta la diferencia entre call y apply:
+
+    //Para call, solo se pone el objeto (En este caso obj2) y los parámetros separados solo por una coma (,)
+    saludar2.call(obj2,"Hola", "Andy"); //Quedaría así.
+
+    //Para el apply se pasa entre corchetes como un array:
+    //El objeto (obj2) quedaría por fuera de los corchetes, todo separado por comas, pero dentro de los corchetes si debe ir los parámetros.
+    saludar2.apply(obj2,["Adios", "Páez"]);//Quedaría así.
+
+    //Si queremos que se salga de la funcion y que tome el "contexto global" le podemos poner la palabra null en vez del objeto, ejemplo:
+
+    saludar2.call(null,"laksjhd", "sjfd") //Aplica también para apply.
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // AHORA SIGUE BIND ---- bind significa enlace.
+    
+    const persona = {
+      nombre: "Andy",
+      saludar: function(){
+        console.log(`Hola ${this.nombre}`);
+      }
+    }
+
+    persona.saludar();
+
+
+    const otraPersona = {
+      saludar: persona.saludar //Aquí va a la variable anterior "persona" para ejecutar su funcion interna.
+    }
+
+    otraPersona.saludar(); // Aquí marca undefined porque la variable "otraPersona" no tiene ningua propiedad nombre (¿? --  esto es debido a que como ejecuta la funcion saludar de la variable "persona" y esta funion ejecuta un this.nombre -- genera el undefined en la variable "otraPersona").
+
+    //Entonces para que no genere error, se debe enlazar con bind dentro de la variable, crearé otra variable para mostrar.
+
+    ///
+    ///
+    ///
+
+    //Recordar de que este metodo bind funciona como si fuera un arrow function.
+
+    const otraPersona2 = {
+      saludar2: persona.saludar.bind(persona) //Así sería como se usa el bind (Se usa dentro de la variable.)
+    }
+
+    otraPersona2.saludar2(); // Aquí ya vuelve a decir "Hola Andy"
+
+
+    //SIGUIENTE CAPITULO 59 JSON.
+
+  </script>
+</body>
+</html> 
