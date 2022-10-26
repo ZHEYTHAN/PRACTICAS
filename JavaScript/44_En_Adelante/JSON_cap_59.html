@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON</title>
+</head>
+<body>
+  <h1> Documento JSON ---- cap 59</h1>
+
+  <script>
+    //TENER PRESENTE DE QUE LOS ARCHIVOS JSON NO SOPORTAN LOS COMENTARIOS *************
+    //Los boolean y los números no es necesario de que vayan en comillas, lo demás si para que no genere error de sintaxis!!
+    //Documento JSON ---- cap 59
+
+    const json = {
+      cadena:"Andy",
+      numero:27,
+      booleano: true,
+      arreglo: ["correr","programar", "cocinar"],
+      objeto:{
+        twitter: "@andresgam9506",
+        email:"andresgam31@gmail.com"
+      },
+      nulo:null
+    }
+
+    console.log(json); // Aquí solo imprime la variable (json)
+
+    console.log(JSON);
+
+    /*
+    parse: Lo que va a hacer es analizar una anotación json (Es decir una cadena de texto("string")) y la va a convertir en un tipo de dato que JavaScript valide (Como un objeto, un arreglo(Array), un boolean, etc...) por ejemplo:
+    */
+
+   console.log("{}"); //Esto en la consola no lo toma como un objeto.
+   console.log(JSON.parse("{}")); //Aquí si lo toma como un obeto pese a que está dentro de comillas, ya que parse lo que hace en si es, analizar el elemento y lo imprime según lo que es, como este ejemplo que si lo imprime como objeto.
+
+
+   //De igual forma con este otro ejemplo.
+    console.log("[1,2,3,4]"); //Esto en consola no lo tomara como un array sino como si fuera un string / cadena de texto.
+    console.log(JSON.parse("[1,2,3,4]")); //Aquí si lo toma como un array pese a que se encuentra dentro de comillas ya que parse si lo imprime como lo que es: un array.
+
+    //Lo mismo sucederá con un valor boolean:
+
+    console.log("true");//Este lo toma solo como cadena de texto en la consola.
+    console.log(JSON.parse("true")); //Aquí si lo toma como un boolean en la consola.
+
+    //Sucede lo mismo para los números y null
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /*
+    Ahora también hay algo que hace lo contrario a JSON.parse() -----
+
+    JSON.stringify()
+
+    JSON.stringify(): convierte un objeto o valor valido de JavaScript en una cadena de texto JSON -------- Opcionalmente reemplaza valores si se idnica una función de reemplazo, o si se especifican las propiedades mediante un array de reemplazo
+
+    ES DECIR QUE VUELVE LO QUE SELECCIONE A UNA ANOTACIÓN JSON (Es decir una cadena de texto).
+
+    ejemplo:
+    */
+
+    console.log({}); //Aquí la consola lo toma como un objeto
+    console.log(JSON.stringify({}));//Aquí la consola lo toma como una cadena de texto.
+
+    //Lo mismo con un array:
+
+    console.log([1,2,3,4]); //Aquí lo toma como un array, de manera normal
+    console.log(JSON.stringify([1,2,3,4]));  // Aquí la consola ya lo toma como una cadena de texto.
+
+    //Lo mismo con los boolean:
+
+    console.log(true); //Aquí la consola lo toma como un boolean de manera normal.
+    console.log(JSON.stringify(true)); //Aquí ya lo toma solo como una cadena de texto en la consola.
+
+    // Y así sucesivamente con los valores validos de JavaScript:
+
+    console.log(null); //Aquí en consola lo toma como null de manera normal.
+    console.log(JSON.stringify(null)); //Aquí lo toma como una cadena de texto.
+
+    console.log(undefined); //Aquí lo lee de manera normal como undefined en la consola.
+    console.log(JSON.stringify(undefined)); // Aquí ya se toma como una cadena de texto.
+
+
+      //Sucede lo mismo con cosas "más complejas" ejemplo:
+
+      console.log({x:2, y:3, z:4}); //Aquí lo toma como un objeto normal en consola
+      console.log(JSON.stringify({x:2, y:3, z:4})); //Aquí ya lo toma como UNA ANOTACIÓN JSON (Es decir una cadena de texto).
+
+      //Ahora como ejemplo más grande vamos a tomar la variable inicial const json: para volverlo solo texto:
+
+      console.log(JSON.stringify(json));
+      // y Aquí su contra parte:
+
+      console.log(JSON.parse(`{"cadena":"Andy","numero":27,"booleano":true,"arreglo":["correr","programar","cocinar"],"objeto":{"twitter":"@andresgam9506","email":"andresgam31@gmail.com"},"nulo":null}`)); //Aquí lo pasa de cadena de texto a cada uno de sus valores correspondientes.
+
+  </script>
+</body>
+</html>
