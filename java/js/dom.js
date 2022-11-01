@@ -100,6 +100,112 @@ console.log(document.querySelectorAll(".card")[2]); //Se pone en corchetes el n�
 console.log(document.querySelectorAll("#menu li"));//Mostrará un NodeList con los elementos li.
 console.log(document.querySelector("#menu li")); //Si quiero solo el primer elemento de la lista, es con el querySelector (Sin el All)
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+console.clear();
+
+/*
+******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+*/
+
+//Desde aquí se va a trabajar los DATA-ATTRIBUTES
+
+//Manejo de data en el DOM -- -interacción.
+
+/* Data-Attributes 
+  La creación de propios atributos, para crearlos es escribir en el documento HTMl la palabra data seguido de un guión y seguido del nombre que se desea: ejemplo:
+  data-example:""  --- dentro de la etiqueta que se quiere manipular.
+
+  Según entiendo, los data son una clase de etiqueta que permite registrar información importante --- TENER PRESENTE DE QUE NO ES SEGURO O CONVENIENTE REGISTRAR USUARIOS Y CONTRASEÑAS (Información sensible).
+*/
+
+//lang en html es una anotación de data, se va a llamar:
+
+console.log(document.documentElement.lang); //Aquí en consola aparecerá es: de lenguaje en el html
+
+//También se pueden llamar de otra forma y es la mejor forma de llamarlo.
+console.log(document.documentElement.getAttribute("lang")); 
+
+//Aquí vamos a acceder al primer enlace href:
+//De esta forma detecta la url y la trae
+console.log(document.querySelector(".link-dom").href); // Esto a través de la etiqueta de clase.
+
+console.log(document.querySelector(".link-dom").getAttribute("href")); //Con este me trae la especificidad de donde está el documento, es decir ("DOM_introducción.html")
+
+
+////// Ahora para generar un cambio dentro de una etiqueta como por ejemplo la de lang que está en la línea 123; lo vamos a hacer así:
+
+document.documentElement.lang = "en"; //Aquí se cambiará directamente en la consola, en el documento html no se verá el cambio, solo se verá en la consola.
+console.log(document.documentElement.lang); //Aquí ya arrojará el "en" en la consola, ya que aquí ya se abrá ejecutado el cambio correspondiente.
+
+// De esta manera on el set también se puede generar la modificación correspondiente
+document.documentElement.setAttribute("lang", "es-CO"); //Aquí genera el cambio
+console.log(document.documentElement.lang); //Aquí muestra en consola el cambio aplicado.
+
+////// AHORA, PARA NO ESTAR ESCRIBIENDO DOCUMENT A CADA MOMENTO SE PUEDE HACER A TRAVÉS DE VARIABLES.
+
+const $linkDOM = document.querySelector(".link-dom"); //Como buena práctica es bueno que las variables que llamen algo del documento html lleven un signo de dollar antes del nombre $. con el fin de saber que variables son las de js y que variables van relacionadas con el documento html. (Guarda un elemento del DOM)
+
+$linkDOM.setAttribute("target", "_blank"); //Como el enlace DOM está direccionado a la misma página, al darle el atributo de target: _blank cargará la paágina en otra hoja pero mostrará lo mismo
+
+$linkDOM.setAttribute("rel", "noopener"); //Esto es de buena práctica para que el nuevo enlace que se abre no se relacione con el anterior (Para evitar que haya sobre control).
+
+$linkDOM.setAttribute("href", "https://youtube.com/jonmircha"); //Con este atributo direccionamos a el enlace que queramos direccionar.
+
+console.log($linkDOM.hasAttribute("rel")); //Para ver que esta propiedad exista.
+
+//De la siguiente forma se elimina un atributo:
+$linkDOM.removeAttribute("rel");
+console.log($linkDOM.hasAttribute("rel")); //Con este console.log es para validar de que se haya eliminado, pues si se eliminó debe de dar false.
+
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
+
+//Data-Attributes ((Los atributos creados x nosotros mismos.))
+
+console.log($linkDOM.getAttribute("data-description")); /*Este fue creado en la línea n° 38 del documento HTML:     <a class="link-dom" href="DOM_introduccion.html" data-description="Document Object Model">DOM</a>   Y en consola mostrará esto: "Document Object Model" */
+
+
+console.log($linkDOM.dataset);//Esto se mostrará como un DOMStringMap{}
+//Dentro de lo que muestra en DOMStringMap{} mostrará: {id: '1', description: 'Document Object Model'}; Es decir que mostrará los que haya dentro de lo que se invoca.
+//$linkDOM es una variable, dentro de esa variable se relaciona con el querySelector(".link-down") que es una clase en un a del documento html(Una etiqueta de enlace).
+
+//Para obtener un data de manera especifica se usa el punto más la anotación:
+
+console.log($linkDOM.dataset.description);//En consola no aparece la palabra data, sino lo que está después del guión: data-description== en consola == description: Document Object Model
+
+$linkDOM.setAttribute("data-description","Modelo de Objeto del Documento") ///Así se modificaría el data con la propiedad set --- modificaría de: "Document Object Model" a  "Modelo de Objeto del Documento"
+
+console.log($linkDOM.dataset.description);//Con esto se comprueba de que el cambio se haya efectuado en consola (Solo para visualizar)
+
+
+// Ahora Existe otra forma de modificar también el data ---  Una es la forma de la línea 180 ↑↑ y otra es la siguiente:
+
+$linkDOM.dataset.description = "Suscríbete a mi canal y comparte."; //Con dataset.
+console.log($linkDOM.dataset.description);
+
+/////////////////////////////////////////////
+/////////////////////////////////////////////
+
+console.log($linkDOM.hasAttribute("data-id")); //Aquí dará true ya que en el documento html en la línea 38 si existe.
+
+console.log($linkDOM.removeAttribute("data-id"));
+
+console.log($linkDOM.hasAttribute("data-id"));
+
+
+
+
+
+
+
+
+
+
+
 
 
 

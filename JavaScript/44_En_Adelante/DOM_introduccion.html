@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- lang es una anotación de data attribute -->
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -28,7 +29,13 @@
     </ul>
   </nav>
   <input type="text" name="nombre" placeholder="Nombre">
-  <a class="link-dom" href="DOM_introduccion.html">DOM</a>
+  <!-- Data-Attributes 
+  La creación de propios atributos, para crearlos es escribir en el documento HTMl la palabra data seguido de un guión y seguido del nombre que se desea: ejemplo:
+  data-example:""
+
+  Según entiendo, los data son una clase de etiqueta que permite registrar información importante --- TENER PRESENTE DE QUE NO ES SEGURO O CONVENIENTE REGISTRAR USUARIOS Y CONTRASEÑAS (Información sensible).
+  -->
+  <a class="link-dom" href="DOM_introduccion.html" data-id="1" data-description="Document Object Model">DOM</a>
   <section class="cards">
     <figure class="card">
       <img src="https://placeimg.com/200/200/tech" alt="Tech">
