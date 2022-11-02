@@ -196,6 +196,9 @@ console.log($linkDOM.removeAttribute("data-id"));
 
 console.log($linkDOM.hasAttribute("data-id"));
 
+//////////////////
+console.clear();
+
 
 
 
