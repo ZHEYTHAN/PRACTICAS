@@ -7,6 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Introducción del DOOM
   </title>
+ <style>
+  /* Este sería una variable css que se genera solo para hacer pruebas con js del docu: cap_64_DOM_estilos_&_CSS.js */
+   :root{
+    --yellow-color:#f7df1e;
+    --dark-color:#222;
+  }
+ </style>
 </head>
 <body>
   <h1>Introducción del DOOM</h1>
@@ -35,7 +42,16 @@
 
   Según entiendo, los data son una clase de etiqueta que permite registrar información importante --- TENER PRESENTE DE QUE NO ES SEGURO O CONVENIENTE REGISTRAR USUARIOS Y CONTRASEÑAS (Información sensible).
   -->
-  <a class="link-dom" href="DOM_introduccion.html" data-id="1" data-description="Document Object Model">DOM</a>
+
+  <!-- Esta etiqueta a será la que se estará usando para hacer las pruebas en el DOM
+
+  Se agrega la propiedad style dentro. -->
+
+  <a class="link-dom" href="DOM_introduccion.html" style="background-color: #f7df1e; color:#222;" data-id="1" data-description="Document Object Model">DOM</a>
+
+  <!-- ////////////////////////
+  //////////////////////// -->
+
   <section class="cards">
     <figure class="card">
       <img src="https://placeimg.com/200/200/tech" alt="Tech">
