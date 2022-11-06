@@ -93,5 +93,12 @@ $body.style.backgroundColor = varDarkColor;
 $body.style.color = varYellowColor;
 
 //Ahora se va a modificar la variable --dark-Color
+//La modificación de color se generaría aquí ↓↓↓
+$html.style.setProperty("--dark-color", "#000"); //Aquí no genera ningún cambio ya que según entiendo del video, Se debe actualizar la variable con el que se controla el color en el documento js.
+//Es decir, así:
 
-//Min 25 cap 64.
+varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
+
+$body.style.setProperty("background-Color", varDarkColor);
+
+/////////// Así con esas dos líneas de código se generaría el cambio correspondiente. ↑↑↑↑
