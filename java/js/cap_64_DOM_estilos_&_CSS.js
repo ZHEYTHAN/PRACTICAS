@@ -101,4 +101,4 @@ varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 
 $body.style.setProperty("background-Color", varDarkColor);
 
-/////////// Así con esas dos líneas de código se generaría el cambio correspondiente. ↑↑↑↑
+/////////// Así con esas dos líneas de código se generaría el cambio correspondiente. ↑↑↑↑↑↑↑
