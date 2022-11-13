@@ -1,130 +1,138 @@
 <!DOCTYPE html>
 <!-- lang es una anotación de data attribute -->
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Introducción del DOOM
-  </title>
- <style>
-  /* Este sería una variable css que se genera solo para hacer pruebas con js del docu: cap_64_DOM_estilos_&_CSS.js */
-   :root{
-    --yellow-color:#f7df1e;
-    --dark-color:#222;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introducción del DOOM</title>
+    <style>
+      /* Este sería una variable css que se genera solo para hacer pruebas con js del docu: cap_64_DOM_estilos_&_CSS.js */
+      :root {
+        --yellow-color: #f7df1e;
+        --dark-color: #222;
+      }
 
-  /* 
+      /* 
   Estos estilos que se van a agregar es para manejo de las clases de css 
 
   Esto es para la clase del CAPITULO 65 "CLASE CSS"   ↓↓↓↓
   */
 
-  .card{
-    display: inline-block;
-    background-color: var(--dark-color);
-    color: var(--yellow-color);
-  }
+      .card {
+        display: inline-block;
+        background-color: var(--dark-color);
+        color: var(--yellow-color);
+      }
 
-  .card figcaption{
-    padding: 1rem;
-  }
+      .card figcaption {
+        padding: 1rem;
+      }
 
-  .rotate-45{
-    transform: rotate(45deg);
-  }
+      .rotate-45 {
+        transform: rotate(45deg);
+      }
 
-  .rotate-135{
-    transform: rotate(135deg);
-  }
+      .rotate-135 {
+        transform: rotate(135deg);
+      }
 
-  .opacity-80{
-    opacity: 0.8;
-  }
+      .opacity-80 {
+        opacity: 0.8;
+      }
 
-  .sepia{
-    filter: sepia(1);
-  }
+      .sepia {
+        filter: sepia(1);
+      }
 
-  /* 
+      /* 
   Hasta aquí van las clases agregadas del CAPITULO 65 para manejo de clases en js    ↑↑↑↑↑↑
   */
-
-
- </style>
-</head>
-<body>
-  <h1>Introducción del DOOM</h1>
-  <br>
-  <hr>
-  <br>
-  <h2>
-    Manejo del DOM
-  </h2>
-  <p id="que-es">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. In debitis harum libero perferendis earum! Expedita fugiat, dolores praesentium deserunt provident maxime aspernatur ex voluptatum reprehenderit modi quod hic aliquid voluptas.
-  </p>
-  <nav id="menu">
-    <ul>
-      <li><a href="#">Seccion 1</a></li>
-      <li><a href="#">Seccion 2</a></li>
-      <li><a href="#">Seccion 3</a></li>
-      <li><a href="#">Seccion 4</a></li>
-      <li><a href="#">Seccion 5</a></li>
-    </ul>
-  </nav>
-  <input type="text" name="nombre" placeholder="Nombre">
-  <!-- Data-Attributes 
+    </style>
+  </head>
+  <body>
+    <h1>Introducción del DOOM</h1>
+    <br />
+    <hr />
+    <br />
+    <h2>Manejo del DOM</h2>
+    <p id="que-es">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. In debitis harum
+      libero perferendis earum! Expedita fugiat, dolores praesentium deserunt
+      provident maxime aspernatur ex voluptatum reprehenderit modi quod hic
+      aliquid voluptas.
+    </p>
+    <nav id="menu">
+      <ul>
+        <li><a href="#">Seccion 1</a></li>
+        <li><a href="#">Seccion 2</a></li>
+        <li><a href="#">Seccion 3</a></li>
+        <li><a href="#">Seccion 4</a></li>
+        <li><a href="#">Seccion 5</a></li>
+      </ul>
+    </nav>
+    <input type="text" name="nombre" placeholder="Nombre" />
+    <!-- Data-Attributes 
   La creación de propios atributos, para crearlos es escribir en el documento HTMl la palabra data seguido de un guión y seguido del nombre que se desea: ejemplo:
   data-example:""
 
   Según entiendo, los data son una clase de etiqueta que permite registrar información importante --- TENER PRESENTE DE QUE NO ES SEGURO O CONVENIENTE REGISTRAR USUARIOS Y CONTRASEÑAS (Información sensible).
   -->
 
-  <!-- Esta etiqueta a será la que se estará usando para hacer las pruebas en el DOM
+    <!-- Esta etiqueta a será la que se estará usando para hacer las pruebas en el DOM
 
   Se agrega la propiedad style dentro. -->
 
-  <a class="link-dom" href="DOM_introduccion.html" style="background-color: #f7df1e; color:#222;" data-id="1" data-description="Document Object Model">DOM</a>
+    <a
+      class="link-dom"
+      href="DOM_introduccion.html"
+      style="background-color: #f7df1e; color: #222"
+      data-id="1"
+      data-description="Document Object Model"
+      >DOM</a
+    >
 
-  <!-- ////////////////////////
+    <!-- ////////////////////////
   //////////////////////// -->
 
-  <section class="cards">
-    <figure class="card">
-      <img src="https://placeimg.com/200/200/tech" alt="Tech">
+    <section class="cards">
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/tech" alt="Tech" />
         <figcaption>Tech</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="https://placeimg.com/200/200/animals" alt="Animals">
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/animals" alt="Animals" />
         <figcaption>Animals</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="https://placeimg.com/200/200/people" alt="People">
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/people" alt="People" />
         <figcaption>People</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="https://placeimg.com/200/200/arch" alt="Arch">
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/arch" alt="Arch" />
         <figcaption>arch</figcaption>
-    </figure>
-    <figure class="card">
-      <img src="https://placeimg.com/200/200/nature" alt="Nature">
+      </figure>
+      <figure class="card">
+        <img src="https://placeimg.com/200/200/nature" alt="Nature" />
         <figcaption>Nature</figcaption>
-    </figure>
-  </section>
+      </figure>
+    </section>
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
-  <div>
-    <h3>CAP 64</h3>
-    <p>Se hace otro documento js llamado <span><b>cap_64_DOM_estilos_&_CSS</b></span></p>
-  </div>
+    <div>
+      <h3>CAP 64</h3>
+      <p>
+        Se hace otro documento js llamado
+        <span><b>cap_64_DOM_estilos_&_CSS</b></span>
+      </p>
+    </div>
 
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <a href="/JavaScript/44_En_Adelante/WEB_APIs_cap_60.html">Go Back</a>
-  <script src="/java/js/dom.js"></script>
-  <script src="/java/js/cap_64_DOM_estilos_&_CSS.js"></script>
-  <script src="/java/js/clase_CSS_cap_65.js"></script>
-</body>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <a href="/JavaScript/44_En_Adelante/WEB_APIs_cap_60.html">Go Back</a>
+    <script src="/java/js/dom.js"></script>
+    <script src="/java/js/cap_64_DOM_estilos_&_CSS.js"></script>
+    <script src="/java/js/clase_CSS_cap_65.js"></script>
+    <script src="/java/js/cap_66_texto_y_html.js"></script>
+  </body>
 </html>
