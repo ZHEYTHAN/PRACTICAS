@@ -83,22 +83,22 @@ const $html = document.documentElement,
   $body = document.body;
 
 //En esta variable let se relaciona para la variable style en :root que se creo en el html --- Es decir que los colores de la variable :root se relacionan aquí en una variable para poder usar.
-let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"),
-  varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color");
+// let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"), //los dejo comentados para que no me deje la pantalla.
+// varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color"); //los dejo comentados para que no me deje la pantalla.
 
-console.log(varDarkColor, varYellowColor);
+// console.log(varDarkColor, varYellowColor);
 
 //Aquí ya se hace uso de los colores que se enlazaron dentro de las variables let varDarkColor y varYellowColor.
-$body.style.backgroundColor = varDarkColor;
-$body.style.color = varYellowColor;
+// $body.style.backgroundColor = varDarkColor;
+// $body.style.color = varYellowColor;
 
 //Ahora se va a modificar la variable --dark-Color
 //La modificación de color se generaría aquí ↓↓↓
-$html.style.setProperty("--dark-color", "#000"); //Aquí no genera ningún cambio ya que según entiendo del video, Se debe actualizar la variable con el que se controla el color en el documento js.
+// $html.style.setProperty("--dark-color", "#000"); //Aquí no genera ningún cambio ya que según entiendo del video, Se debe actualizar la variable con el que se controla el color en el documento js.
 //Es decir, así:
 
-varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
+// varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 
-$body.style.setProperty("background-Color", varDarkColor);
+// $body.style.setProperty("background-Color", varDarkColor);
 
 /////////// Así con esas dos líneas de código se generaría el cambio correspondiente. ↑↑↑↑↑↑↑
