@@ -83,8 +83,8 @@ const $html = document.documentElement,
   $body = document.body;
 
 //En esta variable let se relaciona para la variable style en :root que se creo en el html --- Es decir que los colores de la variable :root se relacionan aquí en una variable para poder usar.
-// let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"), //los dejo comentados para que no me deje la pantalla.
-// varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color"); //los dejo comentados para que no me deje la pantalla.
+let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color"), //los dejo comentados para que no me deje la pantalla.
+  varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color"); //los dejo comentados para que no me deje la pantalla.
 
 // console.log(varDarkColor, varYellowColor);
 
