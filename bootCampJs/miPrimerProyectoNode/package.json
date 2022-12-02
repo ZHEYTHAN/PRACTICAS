@@ -1,0 +1,23 @@
+{
+  "name": "hola_mundo",
+  "version": "1.0.0",
+  "description": "Este es mi primer proyecto de JavaScript con Node en Open BootCamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "holamundo",
+    "firstproject"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZHEYTHAN/PRACTICAS.git"
+  },
+  "author": "Andrés Páez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZHEYTHAN/PRACTICAS/issues"
+  },
+  "homepage": "https://github.com/ZHEYTHAN/PRACTICAS#readme"
+}
