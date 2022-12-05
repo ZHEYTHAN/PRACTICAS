@@ -1,0 +1,6 @@
+Esta carpeta contiene desde el CAPÍTULO 80 de ejercicios prácticos hasta el CAPÍTULO 104 De ejercicios prácticos.
+
+Cada formato se hará en una carpeta separada, es decir en la carpeta js estarán todos los archivos js, en la carpeta css también todos los documentos css y html con html
+Esto con el fin de que no genere ningún error o confusión en su creación o proceso.
+
+Cualquier observación se aplicará aquí.
