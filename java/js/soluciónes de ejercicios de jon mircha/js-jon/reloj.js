@@ -18,7 +18,7 @@ export function digitalClock(clock, btnPlay, btnStop) {
     
     if (e.target.matches(btnStop)) {
       clearInterval(clockTempo);
-      d.querySelector(clock).innerHTML = `Haz desactivado el reloj. <br/> <br/> `;
+      d.querySelector(clock).innerHTML = `//://:// ==> Haz desactivado el reloj. <br/> <br/> `;
       d.querySelector(btnPlay).disabled = false;
     }
   });
@@ -26,4 +26,30 @@ export function digitalClock(clock, btnPlay, btnStop) {
 
 }
 
-export function alarma(){}
+//CAPITULO 83  ↓↓↓↓↓
+
+export function alarma(sound, btnPlay, btnStop) {
+  let alarmTempo
+  const $alarm = d.createElement("audio");
+  $alarm.src = sound;
+
+  d.addEventListener("click", (e) => {
+    
+  if (e.target.matches(btnPlay)) {
+    alarmTempo = setTimeout((e) => {
+      $alarm.play();
+    }, 1000);
+
+    e.target.disabled = true;
+  }
+  if (e.target.matches(btnStop)) {
+    clearTimeout(alarmTempo);
+    $alarm.pause();
+    $alarm.currentTime = 0;
+
+    d.querySelector(btnPlay).disabled = false;
+    }
+    
+  })
+
+}
