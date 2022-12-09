@@ -18,7 +18,7 @@ export function digitalClock(clock, btnPlay, btnStop) {
     
     if (e.target.matches(btnStop)) {
       clearInterval(clockTempo);
-      d.querySelector(clock).innerHTML = `//://:// ==> Haz desactivado el reloj. <br/> <br/> `;
+      d.querySelector(clock).innerHTML = `//://:// <br/> Haz desactivado el reloj. <br/> `;
       d.querySelector(btnPlay).disabled = false;
     }
   });
