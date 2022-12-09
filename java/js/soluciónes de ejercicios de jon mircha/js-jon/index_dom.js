@@ -1,6 +1,6 @@
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
 import { alarma, digitalClock } from "./reloj.js"; //Importa el cap 82 de creación del reloj y cap 83 de la alarma
-import { shortcuts } from "./teclado.js"; //Importa el cap 84 de aprendizaje de los shortCuts
+import { shortcuts,moveBall } from "./teclado.js"; //Importa el cap 84 de aprendizaje de los shortCuts
 
 const d = document;
 
@@ -46,6 +46,7 @@ d.addEventListener("keypress", e => {
 */
 
 d.addEventListener("keydown", e => {
-  console.log("******************************* key down *********************************");
+  // console.log("******************************* key down *********************************");
   shortcuts(e);
+  moveBall(e, "ball", "stage");
 })
