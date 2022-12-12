@@ -48,5 +48,5 @@ d.addEventListener("keypress", e => {
 d.addEventListener("keydown", e => {
   // console.log("******************************* key down *********************************");
   shortcuts(e);
-  moveBall(e, "ball", "stage");
+  moveBall(e, ".ball", ".stage"); //Al ser clases, es importanten ponerles el punto al inicio, sino me va a generar un error.
 })

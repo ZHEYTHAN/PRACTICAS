@@ -121,7 +121,7 @@ img {
   background-color: var(--main-modal-color);
 }
 /* 
-*********************** Para eventos del teclado cap 85 **********************
+*********************** Para eventos del teclado cap 85 ↓↓↓↓ **********************
 */
 
 .stage {
@@ -136,5 +136,8 @@ img {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: red;
+  background-color: var(--main-color);
 }
+/*
+*********************** Para eventos del teclado cap 85 ↑↑↑↑ **********************
+*/
