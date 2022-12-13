@@ -1,3 +1,4 @@
+import scrollTopButton from "./boton_scroll.js";
 import countdown from "./cuenta_regresiva.js";//cap86
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
 import { alarma, digitalClock } from "./reloj.js"; //Importa el cap 82 de creación del reloj y cap 83 de la alarma
@@ -11,6 +12,7 @@ d.addEventListener("DOMContentLoaded", (e) => {
   digitalClock("#reloj", "#activar-reloj", "#desactivar-reloj"); //Para iniciar el reloj // cap del reloj 82
   alarma("/java/js/soluciónes de ejercicios de jon mircha/assets/sonidos/niebla.mp3", "#activar-alarma", "#desactivar-alarma") //Cap 83
   countdown("countdown", "jun 04, 2023 18:00:00", "Feliz cumpleaños Andrés"); //Como solo se va a trabajar con un id y como se está invocado directo, no necesita el simbolo # --- ya que en la otra hoja de js se estará usando el              .getElementById
+  scrollTopButton(".scroll-top-btn");
 });
 
   //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓
