@@ -19,7 +19,7 @@ export default function countdown(id, limitDate, finalMessage) {
     $countdown.innerHTML = `<h3>Faltan: ${days} días|| ${hours} horas|| ${minutes} minutos|| ${seconds} segundos </h3> `
     
 
-    console.log(countdownDate, now);
+    //console.log(countdownDate, now);
 
     if (limitTime < 0) {
       clearInterval(countdownTempo);

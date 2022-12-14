@@ -62,6 +62,7 @@ img {
 }
 
 .panel {
+  overflow-y: scroll;
   position: fixed;
   z-index: 888;
   top: 0;
