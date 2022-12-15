@@ -14,7 +14,7 @@ export default function scrollTopButton(btn) {
       $scrollBtn.classList.add("hidden")      
     }
     
-    console.log(w.pageYOffset, d.documentElement.scrollTop); //Ambos son para mostrar que tanto baja el scroll desde top. (Lo muestra en px).
+    // console.log(w.pageYOffset, d.documentElement.scrollTop); //Ambos son para mostrar que tanto baja el scroll desde top. (Lo muestra en px).
 
 
   });

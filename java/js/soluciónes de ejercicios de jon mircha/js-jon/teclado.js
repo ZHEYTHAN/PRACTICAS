@@ -51,7 +51,7 @@ export function moveBall(e, ball, stage) {
     limitStage = $stage.getBoundingClientRect();
   
   ////////////// un console log para ver sus valores:
-  console.log( limitBall, limitStage);
+  // console.log( limitBall, limitStage);
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   
