@@ -1,5 +1,6 @@
 import scrollTopButton from "./boton_scroll.js";
 import countdown from "./cuenta_regresiva.js";//cap86
+import userDeviceInfo from "./deteccion_dispositivos.js";
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
@@ -30,6 +31,10 @@ d.addEventListener("DOMContentLoaded", (e) => {
   //
   //
   responsiveTester("responsive-tester");//Capitulo 91
+  //
+  //
+  userDeviceInfo("user-device"); //Capitulo 92
+
 });
 
 //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓
