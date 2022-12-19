@@ -1,6 +1,7 @@
 import scrollTopButton from "./boton_scroll.js";
 import countdown from "./cuenta_regresiva.js";//cap86
 import userDeviceInfo from "./deteccion_dispositivos.js";
+import networkStatus from "./deteccion_red.js";
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
@@ -79,3 +80,5 @@ d.addEventListener("keydown", e => {
 })
 
 darktheme(".dark-theme-btn", "dark-mode"); //Se saco del DOMContentLoaded ya que en su js se va a usar en la funcion otro DOMContentLoaded y es para que no genere conflicto. // CAP 88 - 89
+
+networkStatus();//CAPITULO 93 

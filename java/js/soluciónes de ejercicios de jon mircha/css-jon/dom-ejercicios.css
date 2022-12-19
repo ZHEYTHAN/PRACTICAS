@@ -216,3 +216,29 @@ img {
 /*
 *********************** Para eventos del teclado cap 88 ↑↑↑↑↑ **********************
 */
+/* 
+ ****************************************  Detección de la conexión de red ↓↓↓↓↓ --  CAPITULO 93 ***********************************************
+*/
+
+.online,
+.offline {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #1b5e20;
+  color: #fff;
+  transition: all 2s ease-in-out;
+}
+
+.offline {
+  background-color: #b71c1c;
+}
+
+
+/* 
+ ****************************************  Detección de la conexión de red ↑↑↑↑↑↑ --  CAPITULO 93 ***********************************************
+*/
