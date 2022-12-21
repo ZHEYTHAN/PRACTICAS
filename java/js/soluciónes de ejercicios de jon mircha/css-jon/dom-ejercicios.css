@@ -131,7 +131,6 @@ img {
   background-color: var(--second-color);
 }
 
-
 .ball {
   margin: auto;
   width: 4rem;
@@ -237,7 +236,6 @@ img {
 .offline {
   background-color: #b71c1c;
 }
-
 
 /* 
  ****************************************  Detección de la conexión de red ↑↑↑↑↑↑ --  CAPITULO 93 ***********************************************
