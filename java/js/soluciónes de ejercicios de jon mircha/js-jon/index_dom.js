@@ -3,6 +3,7 @@ import countdown from "./cuenta_regresiva.js"; //cap86
 import userDeviceInfo from "./deteccion_dispositivos.js";
 import networkStatus from "./deteccion_red.js";
 import webCam from "./deteccion_webcam.js";
+import laLocalizacion from "./geolocalizacion.js";
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
@@ -45,6 +46,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
   userDeviceInfo("user-device"); //Capitulo 92
 
   webCam("webCam"); //Capitulo 94
+
+  laLocalizacion("geolocation");
 });
 
 //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓
