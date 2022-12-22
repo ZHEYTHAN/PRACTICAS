@@ -41,4 +41,3 @@ export default function laLocalizacion(id) {
 
   n.geolocation.getCurrentPosition(success, error, options); // En este se necesita de estos tres parámetros (success que es confirmación, error para el error, options para las opciones)
 }
-//min 24 cap 95
