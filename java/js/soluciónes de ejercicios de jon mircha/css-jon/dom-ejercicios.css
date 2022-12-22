@@ -240,3 +240,49 @@ img {
 /* 
  ****************************************  Detección de la conexión de red ↑↑↑↑↑↑ --  CAPITULO 93 ***********************************************
 */
+
+/* ************************** CAPITULO 96 PARA FILTROS DE BUSQUEDAS ↓↓↓↓↓ *********************************** */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background-color: var(--second-color);
+  color: var(--main-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+}
+
+.card figcaption {
+  padding: 1rem;
+}
+
+.filter {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  order: 1; /*Este es para el ordenamiento con grid ---*/
+}
+
+#comment:hover {
+  display: flex;
+  position: static;
+  flex-direction: column;
+  background-color: #ffb9d6;
+  z-index: -1;
+  border-radius: 40%;
+  transition: all 0.5s ease-in-out;
+}
+
+#comment-text {
+  font-weight: bold;
+  color: #222;
+  opacity: 1;
+}
+/* ************************** FIN CAPITULO 96 PARA FILTROS DE BUSQUEDAS ↑↑↑↑↑ *********************************** */ ;

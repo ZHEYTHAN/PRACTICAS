@@ -3,6 +3,7 @@ import countdown from "./cuenta_regresiva.js"; //cap86
 import userDeviceInfo from "./deteccion_dispositivos.js";
 import networkStatus from "./deteccion_red.js";
 import webCam from "./deteccion_webcam.js";
+import searchFilter from "./filtro_busquedas.js";
 import laLocalizacion from "./geolocalizacion.js";
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
 import responsiveMedia from "./objeto_responsive.js";
@@ -48,6 +49,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
   webCam("webCam"); //Capitulo 94
 
   laLocalizacion("geolocation");
+
+  searchFilter(".card-filter", ".card"); //capitulo 96 //Se va a generar el filtro sobre figure(que tiene la clase card).
 });
 
 //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓
