@@ -9,10 +9,10 @@ export default function draw(btn, selector, ganador) {
 
   const getWinner = (selector) => {
     const $players = d.querySelectorAll(selector),
-      random = Math.floor(Math.random() * $players.length),
+      random = Math.floor(Math.random() * $players.length), // Siempre es mejor dejarlo en Math.floor para que redondee y no quede undefined cuando el valor redondeado sea superarior al lenght
       winner = $players[random];
 
-    console.log($players, random, winner);
+    // console.log($players, random, winner);
 
     return `el ganador es: ${winner.textContent}`;
   };
@@ -26,4 +26,3 @@ export default function draw(btn, selector, ganador) {
     }
   });
 }
-//min 12
