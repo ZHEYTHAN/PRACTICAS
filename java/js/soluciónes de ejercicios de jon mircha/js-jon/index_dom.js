@@ -1,4 +1,5 @@
 import scrollTopButton from "./boton_scroll.js";
+import slider from "./carrusel.js";
 import countdown from "./cuenta_regresiva.js"; //cap86
 import userDeviceInfo from "./deteccion_dispositivos.js";
 import networkStatus from "./deteccion_red.js";
@@ -54,6 +55,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
   searchFilter(".card-filter", ".card"); //capitulo 96 //Se va a generar el filtro sobre figure(que tiene la clase card).
 
   draw("#winner-btn", ".player", "ganador"); // CAPITULO 97
+
+  slider(); //CAPITULO 98
 });
 
 //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓
