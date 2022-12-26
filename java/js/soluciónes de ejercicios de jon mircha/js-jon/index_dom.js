@@ -14,6 +14,7 @@ import scrollSpy from "./scroll_espia.js";
 import draw from "./sorteo.js";
 import { shortcuts, moveBall } from "./teclado.js"; //Importa el cap 84 de aprendizaje de los shortCuts
 import darktheme from "./tema_oscuro.js";
+import smartVideo from "./video_inteligente.js";
 
 const d = document;
 
@@ -60,6 +61,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
   slider(); //CAPITULO 98
 
   scrollSpy(); //CAPITULO 99 --- SCROLL ESPIA.
+
+  smartVideo(); //CAPITULO 100 -- VIDEO INTELIGENTE
 });
 
 //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓
