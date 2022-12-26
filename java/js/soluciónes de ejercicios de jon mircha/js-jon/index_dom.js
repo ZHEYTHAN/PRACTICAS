@@ -10,6 +10,7 @@ import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamb
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
 import { alarma, digitalClock } from "./reloj.js"; //Importa el cap 82 de creación del reloj y cap 83 de la alarma
+import scrollSpy from "./scroll_espia.js";
 import draw from "./sorteo.js";
 import { shortcuts, moveBall } from "./teclado.js"; //Importa el cap 84 de aprendizaje de los shortCuts
 import darktheme from "./tema_oscuro.js";
@@ -57,6 +58,8 @@ d.addEventListener("DOMContentLoaded", (e) => {
   draw("#winner-btn", ".player", "ganador"); // CAPITULO 97
 
   slider(); //CAPITULO 98
+
+  scrollSpy(); //CAPITULO 99 --- SCROLL ESPIA.
 });
 
 //Capitulo 84 -- aprendizaje de los shortCuts ↓↓↓↓

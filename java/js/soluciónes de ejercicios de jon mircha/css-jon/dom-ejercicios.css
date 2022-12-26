@@ -354,4 +354,64 @@ img {
   transition: all 1s ease-in-out;
 }
 
-/* ************************** FIN CAPITULO 98 -- RESPONSIVE SLIDER ↑↑↑↑ *********************************** */ ;
+/* ************************** FIN CAPITULO 98 -- RESPONSIVE SLIDER ↑↑↑↑ *********************************** */
+
+/* ************************** CAPITULO 99 --- SCROLL SPY  --- ↓↓↓↓↓↓ *********************************** */
+
+@media screen and (min-width: 1024px) {
+  body {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 4rem auto;
+    grid-template-areas:
+      "header header"
+      "main   panel";
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .panel {
+    grid-area: panel;
+    align-self: start;
+    position: sticky;
+    justify-content: flex-start;
+    background-color: var(--second-color);
+    /* A top 4 rem ya que la cabezera tendrá esa altura.*/
+    top: 4rem;
+    transform: translate(0, 0);
+  }
+
+  /* El menú de hamburguesa se va a ocultar para escritorio. ↓↓*/
+
+  .panel-btn {
+    display: none;
+  }
+
+  .menu {
+    justify-content: start;
+    text-align: right;
+  }
+
+  .menu a {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .menu a:hover,
+  .menu a.active {
+    color: var(--second-color);
+    background-color: var(--main-color);
+  }
+
+  .scroll-top-btn {
+    right: initial;
+    left: calc(4.25rem + 1vw);
+  }
+}
+/* ************************** FIN DE CAPITULO 99 --- SCROLL SPY  --- ↑↑↑↑↑↑ *********************************** */
