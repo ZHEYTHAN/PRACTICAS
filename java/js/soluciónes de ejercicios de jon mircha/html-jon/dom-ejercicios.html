@@ -231,15 +231,59 @@
         <h2>Validaciones De Formularios --- Capitulo 101</h2>
         <form class="contact-form">
           <legend>Envianos tus comentarios!</legend>
+          <!-- Primer input ↓↓ -->
           <input
             type="text"
             name="name"
             placeholder="Escribe tu nombre"
-            title=""
+            title="El Nombre sólo acepta letras y espacios en blanco"
+            pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+            required
           />
-          <!--  CAPITULO 101 --- MINUTO 5 -->
+          <!-- Segundo Input ↓↓↓ -->
+          <input
+            type="email"
+            name="email"
+            placeholder="Escribe tu Correo"
+            title="El correo es incorrecto"
+            pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$"
+            required
+          />
+          <!-- Tercer Input ↓↓↓ -->
+
+          <input
+            type="text"
+            name="subject"
+            placeholder="Asunto a tratar"
+            title="El Asunto es requerido"
+            required
+          />
+
+          <!-- Text area para comentarios ↓↓↓↓ -->
+
+          <textarea
+            name="comments"
+            cols="50"
+            rows="5"
+            placeholder="Escribe tus comentarios aquí."
+            title="Tu comentario no debe exceder los 255 caracteres"
+            data-pattern="^.{1,255}$"
+            required
+          ></textarea>
+
+          <!-- Input para enviar ↓↓↓↓ -->
+          <input type="submit" value="Enviar" />
+
+          <div class="contact-form-loader none">
+            <img src="../assets/loaders/bars.svg" alt="cargando" />
+          </div>
+          <div class="contact-form-response none">
+            <p>Los datos han sido enviados</p>
+          </div>
         </form>
+        <!-- Fin de formularios ↑↑↑↑ -->
       </section>
+      <!-- FIN DE LA SECCION #14 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ -->
       <section id="seccion15" class="section" data-scroll-spy>
         <h2>Sección 15</h2>
       </section>

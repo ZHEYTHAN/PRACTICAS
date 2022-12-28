@@ -63,7 +63,7 @@ img {
 }
 
 .panel {
-  overflow-y: scroll;
+  overflow-y: auto;
   position: fixed;
   z-index: 888;
   top: 0;
@@ -415,3 +415,95 @@ img {
   }
 }
 /* ************************** FIN DE CAPITULO 99 --- SCROLL SPY  --- ↑↑↑↑↑↑ *********************************** */
+/* **************************************************** CAPITULO 101 --- VALIDACIÓN DE FORMULARIOS ↓↓↓↓↓↓↓↓↓↓ **************************************************** */
+
+.contact-form {
+  --form-ok-color: #4caf50;
+  --form-error-color: #f44336;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+/* el  * signiica de que está tomando todos los selectores
+ */
+.contact-form > * {
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+/* Para evitar que el tamaño del text area se pueda modificar o arreglar en el navegador, se le aplica lo siguiente ↓↓*/
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form legend,
+.contact-form-response {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Para estandarizar todo en el formulario (Tipo de letra y tamaño)↓↓ */
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 1rem;
+  font-family: sans-serif;
+}
+
+.contact-form input[type="submit"] {
+  width: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.contact-form *::placeholder {
+  color: #000;
+}
+
+.contact-form [required]:valid {
+  border: thin solid var(--form-ok-color);
+}
+
+.contact-form [required]:invalid {
+  border: thin solid var(--form-error-color);
+}
+
+/* Estos estilos son para usar en el prox cap */
+
+.contact-form-error {
+  margin-top: -1rem;
+  font-size: 80%;
+  background-color: var(--form-error-color);
+  color: #fff;
+  transition: all 900ms ease;
+}
+
+.contact-form-error.is-active {
+  display: block;
+  animation: show-message 1s 1 normal 0s ease-in-out;
+}
+
+.none {
+  display: none;
+}
+
+@keyframes show-message {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* **************************************************** FIN DE CAPITULO 101 --- VALIDACIÓN DE FORMULARIOS ↑↑↑↑↑↑↑↑**************************************************** */
+/* **************************************************** CAPITULO 102 --- VALIDACIÓN DE FORMULARIOS --- CONTINUACIÓN ↓↓↓↓↓↓↓↓↓↓ **************************************************** */
+
+/* **************************************************** FIN DE CAPITULO 102 --- VALIDACIÓN DE FORMULARIOS ↑↑↑↑↑↑↑↑**************************************************** */
