@@ -7,6 +7,7 @@ import webCam from "./deteccion_webcam.js";
 import searchFilter from "./filtro_busquedas.js";
 import laLocalizacion from "./geolocalizacion.js";
 import hamburguerMenu from "./menu_hamburgesas.js"; //Importa js de menu de hamburguesa
+import speechReader from "./narrador.js";
 import responsiveMedia from "./objeto_responsive.js";
 import responsiveTester from "./prueba_responsive.js";
 import { alarma, digitalClock } from "./reloj.js"; //Importa el cap 82 de creación del reloj y cap 83 de la alarma
@@ -111,3 +112,5 @@ d.addEventListener("keydown", (e) => {
 darktheme(".dark-theme-btn", "dark-mode"); //Se saco del DOMContentLoaded ya que en su js se va a usar en la funcion otro DOMContentLoaded y es para que no genere conflicto. // CAP 88 - 89
 
 networkStatus(); //CAPITULO 93
+
+speechReader(); //CAPITULO 104
