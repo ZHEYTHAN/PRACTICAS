@@ -503,6 +503,15 @@ img {
   }
 }
 
+/* ******************************* */
+.contact-form-response {
+  border: thick solid green;
+  width: 50%;
+  height: auto;
+  background-color: #4caf50;
+  color: #000;
+}
+
 /* **************************************************** FIN DE CAPITULO 101 --- VALIDACIÓN DE FORMULARIOS ↑↑↑↑↑↑↑↑**************************************************** */
 /* **************************************************** CAPITULO 102 --- VALIDACIÓN DE FORMULARIOS --- CONTINUACIÓN ↓↓↓↓↓↓↓↓↓↓ **************************************************** */
 

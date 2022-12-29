@@ -229,7 +229,13 @@
       </section>
       <section id="seccion14" class="section" data-scroll-spy>
         <h2>Validaciones De Formularios --- Capitulo 101</h2>
-        <form class="contact-form">
+        <!-- Para la activación del formulario statico a través de la página de formsubmit, formsubmit pide que se haga validación de correo a través de su propia página, para validar de que sea un correo existente y que sea de dominio propio -->
+        <form
+          target="_blank"
+          class="contact-form"
+          action="https://formsubmit.co/andresgam31@gmail.com"
+          method="POST"
+        >
           <legend>Envianos tus comentarios!</legend>
           <!-- Primer input ↓↓ -->
           <input
