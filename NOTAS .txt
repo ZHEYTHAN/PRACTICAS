@@ -1,0 +1,6 @@
+Errores de Código:
+https://developer.mozilla.org/es/docs/Web/HTTP/Status
+
+para entender los posibles errores que se pueden generar al momento de hacer
+peticiones en protocolos http o https.
+Ver para entender mejor los códigos ↑↑↑↑
