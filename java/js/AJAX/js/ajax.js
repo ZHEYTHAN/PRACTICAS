@@ -5,6 +5,23 @@
 
 d = document;
 
+//  1) --Lo primero es instanciar el objeto XMLHttpRequest() dentro de una variable, así como en el ejemplo de abajo que queda en la variable:
+// const xhr = new XMLHttpRequest();
+//
+// 2) -- Lo segundo es asignar el o los eventos que se vayan a manipular de la petición (Para este caso la lógica de la programación va dentro de la callBack 
+//que va en el/los eventos).
+//
+// 3) -- La tercera parte es abrir la petición --- establecer el metodo en el cual se va a hacer: GET, HEAD, PUT, POST, TRACE y el recurso (la url de donde se conecta
+// El end-point, o como tal de donde sale el recurso).
+//
+// 4) -- Cuarto y último es enviar la petición, este último se aprenderá una vez se haya aprendido las otras tres.
+
+//Primero se va a aprender a consumir de las API externas.
+/* ********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************
+ */
 (()=>{
 const xhr =new XMLHttpRequest(),
 $xhr = d.getElementById("xhr"),
@@ -12,18 +29,43 @@ $fragment = d.createDocumentFragment();
 //
 //
 //
-console.log(xhr);
+// console.log(xhr);
 //
 //
 //
 //Esto requiere de tres parámetros, el primero esta declarado en la variable de xhr (XMLHttpRequest()), sel segundo es el evento "readystatechange" y el tercero es una callback que para este caso será el evento  e=>{}
-xhr.addEventListener("readystatechange", e =>{})
+xhr.addEventListener("readystatechange", e =>{
+
+//El número 4 representa uno de los estados de la propiedad XMLHttpRequest()
+if(xhr.readyState !==4) return;
+console.log(xhr);
+
+})
 
 //Luego el evento OPEN en la variable.
+//
+//
+//
+//Para la parte del open se debe tener presente de que uno de los parametros que se pide en open corresponde a RESPUESTAS SATISFACTORIAS de los http
+//Refiriendome a esta página en donde se evidencia y se ve las palbras que pueden ir allí, adicional de que cada palabra dependerá de lo que se requiere.
+//https://developer.mozilla.org/es/docs/web/HTTP/status
 
-xhr.open()
+//Como ejemplo:
+//GET es cuando se usa a través de la URL
+//POST a través de la cabecera del documento.
+ //
+ //
+//Aquí se usa GET ya que está obteniendo la info de formato json a través de una PÁGINA y seguido de ello la URL de donde se obtiene la info
+xhr.open("GET", "https://jsonplaceholder.typicode.com/users");
+
+//
+//
+//
+//Luego sigue el enviar la información a través del metodo SEND()
+
+xhr.send();
 
 
 })();
 
-//min 18
+//MINUTO 26 --- CAP 106
