@@ -17,7 +17,7 @@
     //
     //
     .then((respuesta) => {
-      console.log(respuesta);
+      // console.log(respuesta);
       //
       //
       //
